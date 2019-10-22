@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="resources/css/style.css">
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="resources/css/mdb.min.css" rel="stylesheet">
+    <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
     <script src="TemplateData/UnityProgress.js"></script>  
     <script src="%UNITY_WEBGL_LOADER_URL%"></script>
     <script>
@@ -61,11 +62,11 @@
   				<!-- Desplegable capas de datos -->
   				<div class="col-md">
   					<div class="dropdown">
-  						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+  						<button class="btn btn-primary dropdown-toggle" type="button" id="layerDropdown" data-toggle="dropdown"
   						aria-haspopup="true" aria-expanded="false">Capa</button>
   						<div class="dropdown-menu dropdown-primary ">
   							<h6 class="dropdown-header">Elija una capa a visualizar</h6>
-  							<a class="dropdown-item" href="#">Capa Ejempo</a>
+  							<a class="dropdown-item" href="#" id="capaEjemplo">Capa Ejempo</a>
   							<a class="dropdown-item" href="#">Capa 2</a>
   							<a class="dropdown-item" href="#">Capa 3</a>
   						</div>
@@ -75,7 +76,7 @@
   				<!-- Desplegable mapas de campus -->
   				<div class="col-md">
   					<div class="dropdown">
-  						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+  						<button class="btn btn-primary dropdown-toggle" type="button" id="campusDropdown" data-toggle="dropdown"
   						aria-haspopup="true" aria-expanded="false">Campus</button>
 
   						<div class="dropdown-menu dropdown-primary">
@@ -147,6 +148,22 @@
   				</div>
   			</div>
   		</div>
+
+      <!-- Métodos para comunicarse con los scripts en Unity -->
+
+      <script>
+        
+        $( document ).ready(function() {
+          $( "#capaEjemplo" ).click(function( event ) {
+            event.preventDefault();
+            alert( "Se ha pulsado el botón de capa" );
+            gameInstance.SendMessage('Layer 1', 'changeMapImage');
+            
+          });
+        });
+
+      </script>
+
   	</main>
 
   	<footer class="footer">
@@ -171,10 +188,11 @@
   			</div>
   	</footer>
 
-  	<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
+  	
     <script type="text/javascript" src="resources/js/popper.min.js"></script>
     <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="resources/js/mdb.js"></script>
+	  <script type="text/javascript" src="resources/js/mdb.js"></script>
+    <script type="text/javascript" src="resources/js/scripts.js"></script>
   </body>
 
   	
