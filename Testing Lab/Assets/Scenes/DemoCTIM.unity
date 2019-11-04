@@ -8362,6 +8362,7 @@ GameObject:
   - component: {fileID: 1732049869}
   - component: {fileID: 1732049867}
   - component: {fileID: 1732049868}
+  - component: {fileID: 1732049870}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -8494,6 +8495,19 @@ MonoBehaviour:
   ZoomClamp: 0
   ZoomMin: 10
   ZoomMax: 60
+--- !u!65 &1732049870
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732049862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.791208, y: 0.8115855, z: 1.4232681}
+  m_Center: {x: 0.011870027, y: -0.00000005971822, z: 0.30584124}
 --- !u!114 &1732049871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8510,12 +8524,11 @@ MonoBehaviour:
   MouseSensitivity: 4
   ScrollSensitvity: 2
   OrbitDampening: 10
-  ScrollDampening: 20
+  ScrollDampening: 30
   smoot: 0.04
   terrainLayer:
     serializedVersion: 2
     m_Bits: 256
-  CameraDisabled: 0
 --- !u!114 &1732049872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8891,7 +8904,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851198543}
   m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 1.24, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1732049866}
