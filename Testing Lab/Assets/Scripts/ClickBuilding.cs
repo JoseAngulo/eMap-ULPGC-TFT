@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using System.Runtime.InteropServices;
 using UnityEngine.EventSystems;
 
 public class ClickBuilding : MonoBehaviour {
@@ -20,6 +21,9 @@ public class ClickBuilding : MonoBehaviour {
     private int platformID;     // Use -1 when using Editor controls (WebGL builds,etc) and 0 when using mobile controls (Android, iOS).
     private float _longClickTime;
     private float _doubleClickTime;
+
+    [DllImport("__Internal")]
+    private static extern void OpenPageInNewTab(string url);
 
     void Awake()
     {
@@ -205,7 +209,7 @@ public class ClickBuilding : MonoBehaviour {
     {
 
         #if UNITY_WEBGL && !UNITY_EDITOR
-            OpenPageInNewTab(buildingMainPage);
+            OpenPageInNewTab(building.buildingMainPage);
           
         #else
             Application.OpenURL(building.buildingMainPage);
