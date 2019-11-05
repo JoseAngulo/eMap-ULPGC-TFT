@@ -608,6 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: http://www.feet.ulpgc.es/
   buildingName: "Edificio de Ciencias Econ\xF3micas"
+  selectedArrow: {fileID: 0}
 --- !u!4 &45081170
 Transform:
   m_ObjectHideFlags: 0
@@ -2163,6 +2164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: https://tienda.ulpgc.es/
   buildingName: Tienda de la ULPGC
+  selectedArrow: {fileID: 0}
 --- !u!4 &285214815
 Transform:
   m_ObjectHideFlags: 0
@@ -3478,6 +3480,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f70e0998b81ab894f883d05e7c17ce73, type: 3}
+--- !u!1 &518109489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1462359253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &518109490
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518109489}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1c395998e8d39374a8cf4e46243ec0cb, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1c395998e8d39374a8cf4e46243ec0cb, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!4 &518109493 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1462359253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &523808238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3992,7 +4022,7 @@ Transform:
   m_LocalScale: {x: 0.64576954, y: 0.64576936, z: 0.64576936}
   m_Children: []
   m_Father: {fileID: 1785220797}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 1.881, y: 23.37, z: -1.2620001}
 --- !u!65 &670140334
 BoxCollider:
@@ -4157,6 +4187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: http://www.feet.ulpgc.es/
   buildingName: Edificio de Turismo
+  selectedArrow: {fileID: 0}
 --- !u!4 &729076682
 Transform:
   m_ObjectHideFlags: 0
@@ -4837,7 +4868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 64bc8bc5940824c46b4d3fe37dcc9f38, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 64bc8bc5940824c46b4d3fe37dcc9f38, type: 3}
       propertyPath: m_LocalScale.x
@@ -4867,8 +4898,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 64bc8bc5940824c46b4d3fe37dcc9f38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 64bc8bc5940824c46b4d3fe37dcc9f38, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 64bc8bc5940824c46b4d3fe37dcc9f38, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5197,6 +5236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: http://www.feet.ulpgc.es/
   buildingName: Edificio de Ciencias Empresariales
+  selectedArrow: {fileID: 0}
 --- !u!4 &1033017337
 Transform:
   m_ObjectHideFlags: 0
@@ -5512,6 +5552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: https://www.eite.ulpgc.es/index.php/es/
   buildingName: "Escuela de Ingenier\xEDa de Telecomunicaciones y Electr\xF3nica"
+  selectedArrow: {fileID: 0}
 --- !u!4 &1112054920
 Transform:
   m_ObjectHideFlags: 0
@@ -7504,6 +7545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: https://istic.es/
   buildingName: "Anexo a Teolog\xEDa"
+  selectedArrow: {fileID: 0}
 --- !u!1 &1402676850
 GameObject:
   m_ObjectHideFlags: 0
@@ -7535,6 +7577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: https://istic.es/
   buildingName: "Facultad de Teolog\xEDa"
+  selectedArrow: {fileID: 0}
 --- !u!4 &1402676852
 Transform:
   m_ObjectHideFlags: 0
@@ -7594,6 +7637,83 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.83844286, y: 0.4076679, z: 1.6565694}
   m_Center: {x: -0.16776517, y: 0.29616538, z: 0.038346857}
+--- !u!1001 &1462359253
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1764800093}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_Name
+      value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.508
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000041093176
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000041093176
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -270
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 360
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 14.111004
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 14.111008
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 14.111008
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf923f545f4c5f344a2479261e1dc5ce, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd, type: 3}
 --- !u!1001 &1475662320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8362,7 +8482,6 @@ GameObject:
   - component: {fileID: 1732049869}
   - component: {fileID: 1732049867}
   - component: {fileID: 1732049868}
-  - component: {fileID: 1732049870}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -8495,19 +8614,6 @@ MonoBehaviour:
   ZoomClamp: 0
   ZoomMin: 10
   ZoomMax: 60
---- !u!65 &1732049870
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732049862}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.791208, y: 0.8115855, z: 1.4232681}
-  m_Center: {x: 0.011870027, y: -0.00000005971822, z: 0.30584124}
 --- !u!114 &1732049871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8694,6 +8800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: http://eii.ulpgc.es/tb_university_ex/?q=frontpage
   buildingName: "Escuela de Ingenier\xEDa Inform\xE1tica"
+  selectedArrow: {fileID: 518109489}
 --- !u!4 &1764800093
 Transform:
   m_ObjectHideFlags: 0
@@ -8705,6 +8812,7 @@ Transform:
   m_LocalPosition: {x: 0.42999998, y: 0, z: -1.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 518109493}
   - {fileID: 1785220797}
   m_Father: {fileID: 0}
   m_RootOrder: 18
@@ -8752,6 +8860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: https://residenciasuniversitarias.ulpgc.es/
   buildingName: Residencias
+  selectedArrow: {fileID: 0}
 --- !u!4 &1808569129
 Transform:
   m_ObjectHideFlags: 0
@@ -8948,6 +9057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: http://www.fcm.ulpgc.es/
   buildingName: Ciencias del Mar
+  selectedArrow: {fileID: 0}
 --- !u!4 &2001794878
 Transform:
   m_ObjectHideFlags: 0
@@ -9209,6 +9319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMainPage: http://www.feet.ulpgc.es/
   buildingName: Edificio de Empresariales Antiguo
+  selectedArrow: {fileID: 0}
 --- !u!4 &2068571606
 Transform:
   m_ObjectHideFlags: 0

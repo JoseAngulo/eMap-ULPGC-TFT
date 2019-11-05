@@ -1,10 +1,6 @@
-﻿ using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class ClickBuilding : MonoBehaviour {
 
@@ -21,6 +17,18 @@ public class ClickBuilding : MonoBehaviour {
 
 	void Update ()
     {
+
+        if (isLongClick(0))
+        {
+            Debug.Log("Se ha hecho un click largo");
+        }
+
+        if (isDoubleClick(0))
+        {
+            Debug.Log("Se ha hecho un doble click");
+        }
+
+
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -43,21 +51,42 @@ public class ClickBuilding : MonoBehaviour {
 
                 // Update actual selected building.
                 building = rayHit.collider.transform.root.GetComponent<BuildingProperties>();
+
+                activateArrow();
             }
             else
             {
                 //Debug.Log("No se ha interceptado una capa válida");
-                building = null;
+                //building = null;
+                if (building) { deactivateArrow(); }
+                
             }
         }
 
         // Update mainPageButton properties based on selected building.
-
         UpdateMainPageButton();
 
     }
 
+    private GameObject getBuildingArrow(BuildingProperties building)
+    {
+        return building.selectedArrow;
+    }
 
+    private void deactivateArrow()
+    {
+        building.selectedArrow.SetActive(false);
+
+        /*foreach (GameObject arrow in Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "Arrow"))
+        {
+            arrow.SetActive(false);
+        }*/
+    }
+
+    private void activateArrow()
+    {
+        building.selectedArrow.SetActive(true);
+    }
 
     private void UpdateMainPageButton()
     {
@@ -78,4 +107,15 @@ public class ClickBuilding : MonoBehaviour {
         }
         
     }
+
+    private bool isLongClick(int _mouseButton)
+    {
+        return false;
+    }
+
+    private bool isDoubleClick(int _mouseButton)
+    {
+        return false;
+    }
+
 }
