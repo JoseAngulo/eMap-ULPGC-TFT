@@ -8,14 +8,29 @@ public class ClickBuilding : MonoBehaviour {
     private LayerMask clickablesLayer;
 
     [SerializeField]
-    private float maxRayDistance = 50.0f;
+    private float maxRayDistance;
 
     private BuildingProperties building;
+    private static float timer;
+    private static float lastTimer;
+    private static float currentTimer;
+    private static int clicks;
 
-    private int platformID = -1;     // Use -1 when using Editor controls (WebGL builds,etc) and 0 when using mobile controls (Android, iOS).
+
+    private int platformID;     // Use -1 when using Editor controls (WebGL builds,etc) and 0 when using mobile controls (Android, iOS).
+    private float _longClickTime;
+    private float _doubleClickTime;
+
+    void Awake()
+    {
+        platformID = -1;
+        maxRayDistance = 50.0f;
+        _longClickTime = 0.6f;
+        _doubleClickTime = 0.4f;
+    }
 
 
-	void Update ()
+    void Update ()
     {
 
         if (isLongClick(0))
@@ -26,6 +41,12 @@ public class ClickBuilding : MonoBehaviour {
         if (isDoubleClick(0))
         {
             Debug.Log("Se ha hecho un doble click");
+
+            if (building)
+            {
+                OpenURLOnBrowser();
+            }
+           
         }
 
 
@@ -34,37 +55,11 @@ public class ClickBuilding : MonoBehaviour {
 
             // Check if an UI element was clicked.
 
-            if (EventSystem.current.IsPointerOverGameObject(platformID))
-            {
-                Debug.Log("Elemento de interfaz gráfica pulsado");
-                return;
-            }
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
-            RaycastHit rayHit;
-
-            if (Physics.Raycast(ray, out rayHit, maxRayDistance, clickablesLayer))
-            {
-
-                //Debug.Log("Se ha interceptado una capa válida");
-
-                // Update actual selected building.
-                building = rayHit.collider.transform.root.GetComponent<BuildingProperties>();
-
-                activateArrow();
-            }
-            else
-            {
-                //Debug.Log("No se ha interceptado una capa válida");
-                //building = null;
-                if (building) { deactivateArrow(); }
-                
-            }
+            
         }
 
         // Update mainPageButton properties based on selected building.
-        UpdateMainPageButton();
+        //UpdateMainPageButton();
 
     }
 
@@ -75,6 +70,7 @@ public class ClickBuilding : MonoBehaviour {
 
     private void deactivateArrow()
     {
+
         building.selectedArrow.SetActive(false);
 
         /*foreach (GameObject arrow in Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "Arrow"))
@@ -87,7 +83,7 @@ public class ClickBuilding : MonoBehaviour {
     {
         building.selectedArrow.SetActive(true);
     }
-
+    /*
     private void UpdateMainPageButton()
     {
         GameObject urlButton = GameObject.Find("OpenMainPage");
@@ -106,16 +102,117 @@ public class ClickBuilding : MonoBehaviour {
 
         }
         
-    }
+    }*/
 
     private bool isLongClick(int _mouseButton)
     {
+        if (Input.GetMouseButton(_mouseButton))
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= _longClickTime)
+            {
+                clicks = 0;
+                timer = 0;
+                return true;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(_mouseButton))
+        {
+            timer = 0;
+        }
+
+
         return false;
     }
 
     private bool isDoubleClick(int _mouseButton)
     {
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit rayHit;
+
+        if (Input.GetMouseButtonDown(_mouseButton))
+        {
+
+            clicks++;
+
+            if (clicks == 1)
+            {
+                lastTimer = Time.unscaledTime;
+                
+                if (EventSystem.current.IsPointerOverGameObject(platformID))
+                {
+                    Debug.Log("Elemento de interfaz gráfica pulsado");
+                    return false;
+                }
+
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
+
+                if (Physics.Raycast(ray, out rayHit, maxRayDistance, clickablesLayer))
+                {
+
+                    //Debug.Log("Se ha interceptado una capa válida");
+
+                    // Update actual selected building.
+                    building = rayHit.collider.transform.root.GetComponent<BuildingProperties>();
+
+                    activateArrow();
+                }
+                else
+                {
+                    //Debug.Log("No se ha interceptado una capa válida");
+                    //building = null;
+                    if (building) { deactivateArrow(); }
+
+                }
+
+
+            }
+
+            if (clicks >= 2)
+            {
+                if (!(Physics.Raycast(ray, out rayHit, maxRayDistance, clickablesLayer)) && building) {
+                   deactivateArrow();
+                   building = null;
+                }
+                
+                currentTimer = Time.unscaledTime;
+                float difference = currentTimer - lastTimer;
+
+                if (difference <= _doubleClickTime)
+                {
+                    clicks = 0;
+                    return true;
+                }
+                else
+                {
+                    clicks = 0;
+                }
+
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                
+            }
+        }
+        
         return false;
     }
+
+    private void OpenURLOnBrowser()
+    {
+
+        #if UNITY_WEBGL && !UNITY_EDITOR
+            OpenPageInNewTab(buildingMainPage);
+          
+        #else
+            Application.OpenURL(building.buildingMainPage);
+
+        #endif
+
+    }
+
 
 }
