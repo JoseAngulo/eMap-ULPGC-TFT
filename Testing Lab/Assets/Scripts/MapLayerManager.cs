@@ -44,7 +44,7 @@ public class MapLayerManager : MonoBehaviour
         byte[] imageBytes;
         Texture2D texture = new Texture2D(2048, 2048);
 
-        for (int i = 0; i < planes.Length; i++)
+        for (int i = 0; i < tilesNumber; i++)
         {
             
             Debug.Log("ACTUALIZANDO PLANO: " + planes[i].name);
@@ -57,36 +57,32 @@ public class MapLayerManager : MonoBehaviour
             
 
             Debug.Log("CARGANDO IMAGEN....... " + loadPath);
-            //imageBytes = downloader.loadImage(loadPath + getImageExtension(loadPath, fileName));
-            /*
+            
             if (Application.platform == RuntimePlatform.WindowsEditor)
             {
-                imageBytes = downloader.loadImage(loadPath + ".jpg");
+                imageBytes = downloader.loadImage(loadPath + getImageExtension(loadPath, fileName));
+                //imageBytes = downloader.loadImage(loadPath + ".jpg");
                 texture = new Texture2D(2048, 2048);
                 texture.LoadImage(imageBytes);
-            }*/
+                planes[i].GetComponent<MeshRenderer>().material.SetTexture("_MainTex", texture);
+                Debug.Log("PLANO ACTUALIZADO *** ");
+            }
 
-            //if (Application.platform == RuntimePlatform.WebGLPlayer)
-            //{
-                StartCoroutine(downloader.loadImageFromServer(loadPath + ".jpg"));
-                texture = downloader.getDownloadedTexture();
-            //}
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
 
-                   
-            //imageBytes = downloader.loadImage(savePath + layerName + "_" + imageIndex);
-            //string image_extension = 
-
-            Debug.Log("IMAGEN CARGADA");
-                        
-            planes[i].GetComponent<MeshRenderer>().material.SetTexture("_MainTex", texture);
-
-            Debug.Log("PLANO ACTUALIZADO *** ");
-        }
-        
-    }
-
+                if (layerName.Equals("Cultural") || layerName.Equals("Callejero"))
+                {
+                    StartCoroutine(downloader.loadImageFromServer(loadPath + ".png", planes[i]));
+                }
+                else
+                {
+                    StartCoroutine(downloader.loadImageFromServer(loadPath + ".jpg", planes[i]));
+                }
+            }
+        } 
+    } 
     
-    /*
     private string getImageExtension(string loadPath, string fileName)
     {
         DirectoryInfo dir = new DirectoryInfo(savePath);
@@ -96,7 +92,6 @@ public class MapLayerManager : MonoBehaviour
         Debug.Log("ARCHIVO PARA COGER EXTENSIÓN: " + foundFileName);
         Debug.Log("EXTENSIÓN: " + foundFileName.Substring(foundFileName.LastIndexOf('.')));
 
-
         return foundFileName.Substring(foundFileName.LastIndexOf('.'));
-    }*/
+    }
 }

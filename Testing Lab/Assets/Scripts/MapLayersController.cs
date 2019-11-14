@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class MapLayersController : MonoBehaviour
 {
 
-    private Button[] layerButtons;
+    //private Button[] layerButtons;
     public List<Button> objects;
 
-
+    /*
     void Start()
     {
         layerButtons = GetComponentsInChildren<Button>();
-    }
+    }*/
 
     public void showLayerButtons()
     {

@@ -9,7 +9,6 @@ public class ImageDownloader : MonoBehaviour
 {
 
     private string url;
-    private Texture2D texture;
 
     private void Start()
     {
@@ -21,11 +20,6 @@ public class ImageDownloader : MonoBehaviour
         //savePath = Path.Combine(savePath, "logo.png");
         //downloadImage(url, savePath);
     }
-    /*
-    public void downloadImage(string url, string pathToSaveImage)
-    {
-        StartCoroutine(_downloadImage(url, pathToSaveImage));
-    }*/
 
     public void downloadImage(string url, string pathToSaveImage, string layerName, int imageIndex)
     {
@@ -36,9 +30,8 @@ public class ImageDownloader : MonoBehaviour
 
     private IEnumerator _downloadImage(string url, string savePath)
     {
-        //Debug.Log("PREPARANDO WEB REQUEST");
+        
         UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(url);
-       // Debug.Log("WEB REQUEST PREPARADO");
         {
             yield return uwr.SendWebRequest();
 
@@ -50,7 +43,7 @@ public class ImageDownloader : MonoBehaviour
             else
             {
                 Debug.Log("Success");
-                Texture myTexture = DownloadHandlerTexture.GetContent(uwr);
+                //Texture myTexture = DownloadHandlerTexture.GetContent(uwr);
                 byte[] results = uwr.downloadHandler.data;
                 saveImage(savePath, results);
 
@@ -69,7 +62,6 @@ public class ImageDownloader : MonoBehaviour
 
         try
         {
-            //File.write();
             //Debug.Log("GUARDANDO.............");
             File.WriteAllBytes(path, imageBytes);
             //Debug.Log("IMAGE GUARDADA CON ÉXITO");
@@ -82,7 +74,7 @@ public class ImageDownloader : MonoBehaviour
         }
     }
 
-    public IEnumerator loadImageFromServer(string imageURL)
+    public IEnumerator loadImageFromServer(string imageURL, GameObject plane)
     {
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageURL);
         yield return www.SendWebRequest();
@@ -94,8 +86,9 @@ public class ImageDownloader : MonoBehaviour
         else
         {
             Debug.Log("URL DE TEXTURA: " + imageURL);
-            texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
-            Debug.Log("TEXTURA DESCARGADA: " + texture.name);
+            Texture2D texture = ((DownloadHandlerTexture)www.downloadHandler).texture;
+            plane.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", texture);
+            Debug.Log("TEXTURA ACTUALIZADA: " + texture.name);
         }
     }
 
@@ -130,13 +123,6 @@ public class ImageDownloader : MonoBehaviour
 
         return dataByte;
     }
-
-    public Texture2D getDownloadedTexture()
-    {
-        return texture;
-    }
-
-
-
+    
 
 }

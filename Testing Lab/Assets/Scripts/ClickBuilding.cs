@@ -19,8 +19,8 @@ public class ClickBuilding : MonoBehaviour {
 
 
     private int platformID;     // Use -1 when using Editor controls (WebGL builds,etc) and 0 when using mobile controls (Android, iOS).
-    private float _longClickTime;
-    private float _doubleClickTime;
+    public float _longClickTime = 0.6f;
+    public float _doubleClickTime = 0.4f;
 
     [DllImport("__Internal")]
     private static extern void OpenPageInNewTab(string url);
@@ -29,22 +29,21 @@ public class ClickBuilding : MonoBehaviour {
     {
         platformID = -1;
         maxRayDistance = 50.0f;
-        _longClickTime = 0.6f;
-        _doubleClickTime = 0.4f;
     }
 
 
     void Update ()
     {
-
+        
         if (isLongClick(0))
         {
             Debug.Log("Se ha hecho un click largo");
         }
 
-        if (isDoubleClick(0))
+        if (isDoubleClickOnBuilding(0))
         {
             Debug.Log("Se ha hecho un doble click");
+            Debug.Log("Valor de building tras docle click: " + building);
 
             if (building)
             {
@@ -52,18 +51,6 @@ public class ClickBuilding : MonoBehaviour {
             }
            
         }
-
-
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            // Check if an UI element was clicked.
-
-            
-        }
-
-        // Update mainPageButton properties based on selected building.
-        //UpdateMainPageButton();
 
     }
 
@@ -76,38 +63,13 @@ public class ClickBuilding : MonoBehaviour {
     {
 
         building.selectedArrow.SetActive(false);
-
-        /*foreach (GameObject arrow in Resources.FindObjectsOfTypeAll<GameObject>().Where(obj => obj.name == "Arrow"))
-        {
-            arrow.SetActive(false);
-        }*/
     }
 
     private void activateArrow()
     {
         building.selectedArrow.SetActive(true);
     }
-    /*
-    private void UpdateMainPageButton()
-    {
-        GameObject urlButton = GameObject.Find("OpenMainPage");
-        MainPageButtonProperties buttonProperties = urlButton.GetComponent<MainPageButtonProperties>();
-
-        if (building != null){
-            buttonProperties.buildingName = building.buildingName;
-            buttonProperties.buildingMainPage = building.buildingMainPage;
-            urlButton.GetComponentInChildren<TextMeshProUGUI>().text = "Ir a la página de: " + building.name;
-        }
-        else
-        {
-            buttonProperties.buildingName = "None";
-            buttonProperties.buildingMainPage = "";
-            urlButton.GetComponentInChildren<TextMeshProUGUI>().text = "Seleccione un edificio";
-
-        }
-        
-    }*/
-
+    
     private bool isLongClick(int _mouseButton)
     {
         if (Input.GetMouseButton(_mouseButton))
@@ -131,7 +93,7 @@ public class ClickBuilding : MonoBehaviour {
         return false;
     }
 
-    private bool isDoubleClick(int _mouseButton)
+    private bool isDoubleClickOnBuilding(int _mouseButton)
     {
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -170,7 +132,7 @@ public class ClickBuilding : MonoBehaviour {
                     //Debug.Log("No se ha interceptado una capa válida");
                     //building = null;
                     if (building) { deactivateArrow(); }
-
+                    clicks = 0;
                 }
 
 
@@ -179,10 +141,13 @@ public class ClickBuilding : MonoBehaviour {
             if (clicks >= 2)
             {
                 if (!(Physics.Raycast(ray, out rayHit, maxRayDistance, clickablesLayer)) && building) {
+                   Debug.Log("Anulando building, el segundo click no fue en un edificio: " + building);
                    deactivateArrow();
                    building = null;
                 }
-                
+
+                Debug.Log("Valor de building tras comprobar segundo click: " + building);
+
                 currentTimer = Time.unscaledTime;
                 float difference = currentTimer - lastTimer;
 

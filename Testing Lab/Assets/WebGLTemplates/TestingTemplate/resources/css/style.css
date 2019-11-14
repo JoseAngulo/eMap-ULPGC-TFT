@@ -1,0 +1,20 @@
+body{
+	background-color: rgb(230, 241, 255) !important;
+
+
+}
+.container{
+	background-color: 
+}
+
+
+
+.game-canvas{
+	position: relative;
+	display:block;
+}
+
+.game-player{
+	position: absolute;
+	display:block;
+}

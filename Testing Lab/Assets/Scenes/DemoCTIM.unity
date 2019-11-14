@@ -8810,7 +8810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 403.9, y: -35.2}
+  m_AnchoredPosition: {x: 403.8999, y: -35.19995}
   m_SizeDelta: {x: 222.64, y: 25.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1716518544 stripped
@@ -9040,6 +9040,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   maxRayDistance: 50
+  _longClickTime: 0.6
+  _doubleClickTime: 0.3
 --- !u!114 &1732049869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9080,6 +9082,8 @@ MonoBehaviour:
   ScrollSensitvity: 2
   OrbitDampening: 10
   ScrollDampening: 30
+  minZoom: 0.8
+  maxZoom: 10
   smoot: 0.04
   terrainLayer:
     serializedVersion: 2
@@ -9853,7 +9857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 113.399994, y: 52.72}
+  m_AnchoredPosition: {x: 113.3999, y: 52.71997}
   m_SizeDelta: {x: 115.140015, y: 18.380005}
   m_Pivot: {x: 0.49999994, y: 0.5}
 --- !u!114 &2106383689
