@@ -25,6 +25,7 @@ public class WebCamera : MonoBehaviour
     private Vector3 editorOldRayPos;
     private bool firstExecution = true;
     private bool rotating = false;
+    private float rayCastDistance = 100.0f;
 
 
     void Start()
@@ -38,6 +39,8 @@ public class WebCamera : MonoBehaviour
         //Debug.Log("Rotación de _LocalRotation durante START() --->  X: " + _LocalRotation.x + " Y: " + _LocalRotation.y);
         camera = GetComponent<Camera>();
     }
+
+    
     
     void LateUpdate()
     {
@@ -52,7 +55,7 @@ public class WebCamera : MonoBehaviour
             Debug.DrawLine(transform.position, downHit.point, Color.red);
         }
 
-
+        
         //Rotation of the Camera based on Mouse Coordinates
         if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftShift))
         {
@@ -92,7 +95,7 @@ public class WebCamera : MonoBehaviour
 
         }
 
-               
+              
         if (!rotating)
         {
 
@@ -136,6 +139,7 @@ public class WebCamera : MonoBehaviour
 
 
             // Zooming input from our mouse scroll wheel
+            /*
             if (Input.GetAxis("Mouse ScrollWheel") != 0f)
             {
                 float scrollamount = Input.GetAxis("Mouse ScrollWheel") * ScrollSensitvity;
@@ -145,13 +149,47 @@ public class WebCamera : MonoBehaviour
                 _CameraDistance += scrollamount * -1f;
 
                 _CameraDistance = Mathf.Clamp(_CameraDistance, 0.8f, 10f);
+            }*/
+
+            if (Input.GetAxis("Mouse ScrollWheel") != 0)
+            {
+                // Detach pivot from Camera
+                this.transform.parent = null;
+
+                RaycastHit hit;
+                Ray ray = this.transform.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+                Vector3 desiredPosition;
+
+                if (Physics.Raycast(ray, out hit, rayCastDistance, terrainLayer))
+                {
+                    desiredPosition = hit.point;
+                }
+                else
+                {
+                    desiredPosition = transform.position;
+                }
+                float distance = Vector3.Distance(desiredPosition, transform.position);
+                Vector3 direction = Vector3.Normalize(desiredPosition - transform.position) * (distance * Input.GetAxis("Mouse ScrollWheel"));
+
+                transform.position += direction;
+
+                // Update camera pivot to new position on the map
+                Vector3 pivotSpawnPoint;
+
+                if (Physics.Raycast(_XForm_Camera.position, _XForm_Camera.forward, out hit, rayCastDistance, terrainLayer))
+                {
+                    pivotSpawnPoint = hit.point;
+                    _XForm_Parent.transform.position = pivotSpawnPoint;
+                }
+              
+                this.transform.parent = this._XForm_Parent;
             }
 
-            
+
             if (_XForm_Camera.localPosition.z != _CameraDistance * -1f)
             {
                 //Debug.Log("Posicionando cámara en el último IF");
-                _XForm_Camera.localPosition = new Vector3(0f, 0f, Mathf.Lerp(_XForm_Camera.localPosition.z, _CameraDistance * -1f, Time.deltaTime * ScrollDampening));
+                //_XForm_Camera.localPosition = new Vector3(0f, 0f, Mathf.Lerp(_XForm_Camera.localPosition.z, _CameraDistance * -1f, Time.deltaTime * ScrollDampening));
             }
 
 
