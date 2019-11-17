@@ -25,7 +25,7 @@ public class ClickBuilding : MonoBehaviour {
     [DllImport("__Internal")]
     private static extern void OpenPageInNewTab(string url);
 
-    void Awake()
+    void Start()
     {
         platformID = -1;
         maxRayDistance = 50.0f;
@@ -106,16 +106,17 @@ public class ClickBuilding : MonoBehaviour {
 
             if (clicks == 1)
             {
+                Debug.Log("Clicks vale 1");
                 lastTimer = Time.unscaledTime;
-                
+                /*
                 if (EventSystem.current.IsPointerOverGameObject(platformID))
                 {
                     Debug.Log("Elemento de interfaz gráfica pulsado");
                     return false;
-                }
+                }*/
 
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
+                //Debug.DrawRay(ray.origin, ray.direction * 10, Color.red);
 
                 if (Physics.Raycast(ray, out rayHit, maxRayDistance, clickablesLayer))
                 {
@@ -123,6 +124,7 @@ public class ClickBuilding : MonoBehaviour {
                     //Debug.Log("Se ha interceptado una capa válida");
 
                     // Update actual selected building.
+                    if (building) { deactivateArrow(); }
                     building = rayHit.collider.transform.root.GetComponent<BuildingProperties>();
 
                     activateArrow();
@@ -130,8 +132,10 @@ public class ClickBuilding : MonoBehaviour {
                 else
                 {
                     //Debug.Log("No se ha interceptado una capa válida");
-                    //building = null;
+                    
                     if (building) { deactivateArrow(); }
+                    Debug.Log("Clicks: " + clicks);
+                    building = null;
                     clicks = 0;
                 }
 
@@ -140,10 +144,23 @@ public class ClickBuilding : MonoBehaviour {
 
             if (clicks >= 2)
             {
+                Debug.Log("Clicks vale 2");
                 if (!(Physics.Raycast(ray, out rayHit, maxRayDistance, clickablesLayer)) && building) {
                    Debug.Log("Anulando building, el segundo click no fue en un edificio: " + building);
                    deactivateArrow();
                    building = null;
+                }
+                else
+                {
+                    BuildingProperties clickedBuilding = rayHit.collider.transform.root.GetComponent<BuildingProperties>();
+                    if (!clickedBuilding.name.Equals(building.name))
+                    {
+                        deactivateArrow();
+                        building = clickedBuilding;
+                        activateArrow();
+                        return false;
+                    }
+
                 }
 
                 Debug.Log("Valor de building tras comprobar segundo click: " + building);
@@ -153,12 +170,15 @@ public class ClickBuilding : MonoBehaviour {
 
                 if (difference <= _doubleClickTime)
                 {
+                    Debug.Log("Clicks: " + clicks);
                     clicks = 0;
+                    Debug.Log("Tiempo de doble click cumplido: " + clicks);
                     return true;
                 }
                 else
                 {
                     clicks = 0;
+                    Debug.Log("Tiempo de doble click NO cumplido: " + clicks);
                 }
 
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
