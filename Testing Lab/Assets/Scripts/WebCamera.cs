@@ -18,7 +18,9 @@ public class WebCamera : MonoBehaviour
     public float OrbitDampening = 10f;
     public float ScrollDampening = 6f;
     public float minZoom = 0.8f;
-    public float maxZoom = 10f;
+    public float maxZoom = 7.5f;
+    public float minRotation = 0.8f;
+    public float maxRotation = 0.8f;
     public float smoot = 0.04f;
     public LayerMask terrainLayer;
     private bool editorScanOldRay = true;
@@ -26,10 +28,12 @@ public class WebCamera : MonoBehaviour
     private bool firstExecution = true;
     private bool rotating = false;
     private float rayCastDistance = 100.0f;
+    private BoxCollider cameraCollider;
 
 
     void Start()
     {
+        cameraCollider = GetComponent<BoxCollider>();
         this._XForm_Camera = this.transform;
         this._XForm_Parent = this.transform.parent;
         _LocalRotation.x = 0;
@@ -67,12 +71,12 @@ public class WebCamera : MonoBehaviour
                 _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;
 
                 //Clamp Y rotation to horizon and not flipping over at the top
-                if (_LocalRotation.y < 2f)
-                    _LocalRotation.y = 2f;
+                if (_LocalRotation.y < 10f)
+                    _LocalRotation.y = 10f;
                 else if (_LocalRotation.y > 90f)
                     _LocalRotation.y = 90f;
 
-                firstExecution = false;
+               firstExecution = false;
             }
 
         }
@@ -92,6 +96,15 @@ public class WebCamera : MonoBehaviour
             //Debug.Log("CASO INICIAL DE QUATERNION");
             QT = Quaternion.Euler(_LocalRotation.y, _LocalRotation.x, 0);
             _XForm_Parent.rotation = Quaternion.Lerp(_XForm_Parent.rotation, QT, Time.deltaTime * OrbitDampening);
+
+            Vector3 actualRotation = _XForm_Parent.rotation.eulerAngles;
+            actualRotation.y = Mathf.Clamp(actualRotation.y, 10f, 90f);
+            //_XForm_Parent.rotation = Quaternion.Euler(actualRotation);
+
+            //_XForm_Parent.eulerAngles = new Vector3(0, Mathf.Clamp(_XForm_Parent.rotation.y, 5f,90f), 0);
+            //Debug.Log("Rotación del padre : " + _XForm_Parent.rotation.eulerAngles);
+            //Debug.Log("Transform.position tras ROTAR: " + transform.position);
+            //_XForm_Parent.localPosition = new Vector3(transform.localPosition.x, Mathf.Clamp(transform.localPosition.y, minZoom, maxZoom), transform.localPosition.z);
 
         }
 
@@ -171,8 +184,22 @@ public class WebCamera : MonoBehaviour
                 float distance = Vector3.Distance(desiredPosition, transform.position);
                 Vector3 direction = Vector3.Normalize(desiredPosition - transform.position) * (distance * Input.GetAxis("Mouse ScrollWheel"));
 
-                transform.position += direction;
+                if ((transform.position.y + direction.y) <= minZoom || (transform.position.y + direction.y) >= maxZoom)
+                {
+                    direction.z = 0f;
+                    direction.x = 0f;
+                }
 
+                transform.position += direction;
+                Debug.Log("Transform.position: " + transform.position);
+                Debug.Log("Clampeito de la altura: " + Mathf.Clamp(transform.position.y, minZoom, maxZoom));
+                
+
+                //Vector3 zClamp = new Vector3(0f,0f,Mathf.Clamp(transform.position.z, minZoom, maxZoom));
+                //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, Mathf.Clamp(transform.localPosition.z, minZoom, maxZoom));
+                transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, minZoom, maxZoom), transform.position.z);
+                //Debug.Log("Fijando posición en Y tras zoom. Posición: " + transform.localPosition.y + "Valor de Math.Clamp(): " + Mathf.Clamp(transform.localPosition.y, minZoom, maxZoom));
+                Debug.Log("Transform.position tras clampeo: " + transform.position);
                 // Update camera pivot to new position on the map
                 Vector3 pivotSpawnPoint;
 
@@ -183,6 +210,8 @@ public class WebCamera : MonoBehaviour
                 }
               
                 this.transform.parent = this._XForm_Parent;
+                               
+
             }
 
 
@@ -195,6 +224,16 @@ public class WebCamera : MonoBehaviour
 
         }
 
+
+
         
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("La cámara ha colisionado con algo...");
+    }
+
+
+
 }

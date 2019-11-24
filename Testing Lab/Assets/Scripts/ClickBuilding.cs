@@ -28,7 +28,7 @@ public class ClickBuilding : MonoBehaviour {
     void Start()
     {
         platformID = -1;
-        maxRayDistance = 50.0f;
+        maxRayDistance = 100.0f;
     }
 
 
