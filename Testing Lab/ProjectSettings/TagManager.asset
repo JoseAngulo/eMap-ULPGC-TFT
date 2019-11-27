@@ -45,3 +45,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MobileControlsSprite
+    uniqueID: 1148606295
+    locked: 0
