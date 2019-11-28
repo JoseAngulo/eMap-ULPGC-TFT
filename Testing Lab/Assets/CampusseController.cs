@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class MapLayersController : MonoBehaviour
+public class CampusseController : MonoBehaviour
 {
 
     public List<GameObject> buttons;
@@ -12,7 +11,7 @@ public class MapLayersController : MonoBehaviour
     public float initialXOffset;
     private float xOffset;
 
-    public void showLayerButtons()
+    public void showCampussesButtons()
     {
 
         if (!buttonsShowed)
@@ -28,19 +27,19 @@ public class MapLayersController : MonoBehaviour
 
     private void showButtons()
     {
-        xOffset = initialXOffset;
+        xOffset = -initialXOffset;
 
         foreach (GameObject button in buttons)
         {
             button.gameObject.SetActive(true);
             LeanTween.moveX(button.GetComponent<RectTransform>(), xOffset, 1f).setEaseOutCirc();
-            xOffset += initialXOffset;
+            xOffset -= initialXOffset;
         }
 
         buttonsShowed = true;
 
     }
-    
+
     public void hiddeButtons()
     {
         xOffset = 0f;
@@ -55,5 +54,11 @@ public class MapLayersController : MonoBehaviour
         buttonsShowed = false;
 
     }
+
+    public void OpenCampusScene(String sceneName)
+    {
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
+
 
 }

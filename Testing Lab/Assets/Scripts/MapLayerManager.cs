@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class MapLayerManager : MonoBehaviour
 {
@@ -20,8 +21,9 @@ public class MapLayerManager : MonoBehaviour
         downloader = gameObject.AddComponent<ImageDownloader>();
         tilesNumber = 4;
         savePath = Application.dataPath;
-        if (Application.platform == RuntimePlatform.WebGLPlayer) { savePath = Application.dataPath + "/Resources/"; }
-        if (Application.platform == RuntimePlatform.WindowsEditor) { savePath = Application.dataPath + "/Resources/Images/downloaded/"; }
+        String sceneName = SceneManager.GetActiveScene().name;
+        if (Application.platform == RuntimePlatform.WebGLPlayer) { savePath = Application.dataPath + "/Resources/" + sceneName + "/"; }
+        if (Application.platform == RuntimePlatform.WindowsEditor) { savePath = Application.dataPath + "/Resources/Images/downloaded/" + sceneName + "/"; }
     }
 
     public void UpdateLayer(string layerName, string baseImageURL)
