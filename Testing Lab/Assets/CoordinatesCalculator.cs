@@ -55,6 +55,16 @@ public class CoordinatesCalculator : MonoBehaviour
         Debug.Log("MinX: " + puntoMedioX);
         Debug.Log("MaxY: " + puntoMedioY);
         Debug.Log("MaxX: " + maxx);
+/*
+     Debug.Log("=== ENLACES DE CAPAS ===");
+        Debug.Log("OrtoExpress: \n" +
+            "https://idecan1.grafcan.es/ServicioWMS/OrtoExpress?request=GetMap&service=WMS&version=1.3.0&" +
+            "layers=WMS_OrtoExpress&styles=&" +
+            "crs=EPSG:4326&" +
+            "bbox=" + puntoMedioY + "," + minx + "," + maxy + "," + puntoMedioX +  "&" +
+            "width=2048&" +
+            "height=2048&" +
+            "format=image/jpeg");*/
 
 
 

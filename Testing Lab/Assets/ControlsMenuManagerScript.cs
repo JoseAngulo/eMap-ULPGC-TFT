@@ -6,19 +6,20 @@ public class ControlsMenuManagerScript : MonoBehaviour
 {
     public GameObject controlsMenu;
     public GameObject mapLayerButtons;
+    public GameObject campussesButtons;
 
     public void ShowControlsMenu()
     {
         controlsMenu.SetActive(true);
         mapLayerButtons.SetActive(false);
-        //Time.timeScale = 0f;
+        campussesButtons.SetActive(false);
     }
 
     public void HiddeControlsMenu()
     {
         controlsMenu.SetActive(false);
         mapLayerButtons.SetActive(true);
-        //Time.timeScale = 1f;
+        campussesButtons.SetActive(true);
     }
 
     
