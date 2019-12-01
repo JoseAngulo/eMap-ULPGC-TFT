@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/DemoCTIM.unity
-    guid: 2e35d0a084ac86e4e9084c456c6b5261
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Tafira.unity
     guid: 3781465db08b80d4293cd90ab1d48300
   - enabled: 1
     path: Assets/Scenes/San_Cristobal.unity
     guid: 7a43f87fcdf2a704cae1dcb1f8811c66
+  - enabled: 1
+    path: Assets/Scenes/Obelisco.unity
+    guid: 017fc38ca475a8d47a4554fd72e9d560
+  - enabled: 1
+    path: Assets/Scenes/Montana_Cardones.unity
+    guid: e2c19aea0fae27044b668ae4d0a060ab
   m_configObjects: {}
