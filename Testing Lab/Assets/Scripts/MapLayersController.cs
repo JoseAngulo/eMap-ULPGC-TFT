@@ -10,9 +10,22 @@ public class MapLayersController : MonoBehaviour
     public List<GameObject> buttons;
     private bool buttonsShowed = false;
     public float initialXOffset;
+    private float initialYOffset;
     private float xOffset;
+    public float yOffset;
+    public float animationDuration;
+    public float animationDelay;
 
-    public void showLayerButtons()
+
+    private void Start()
+    {
+        initialYOffset = buttons[0].transform.position.y;
+        //animationDuration = 1f;
+        //animationDelay = 0.5f;
+
+    }
+
+    public void showLayersButtons()
     {
 
         if (!buttonsShowed)
@@ -28,32 +41,34 @@ public class MapLayersController : MonoBehaviour
 
     private void showButtons()
     {
-        xOffset = initialXOffset;
+        Debug.Log(buttons[0].transform.position.y); //initialYOffset = buttons[0].transform.position.y;
 
         foreach (GameObject button in buttons)
         {
+            Debug.Log(yOffset);
             button.gameObject.SetActive(true);
-            LeanTween.moveX(button.GetComponent<RectTransform>(), xOffset, 1f).setEaseOutCirc();
-            xOffset += initialXOffset;
+            LeanTween.moveY(button.GetComponent<RectTransform>(), yOffset, animationDuration).setEaseOutCirc().setDelay(animationDelay);
+            //animationDuration += animationDelay;
         }
 
         buttonsShowed = true;
 
     }
-    
+
     public void hiddeButtons()
     {
-        xOffset = 0f;
         LTDescr leanButtonDescription;
 
         foreach (GameObject button in buttons)
         {
-            leanButtonDescription = LeanTween.moveX(button.GetComponent<RectTransform>(), xOffset, 1f).setEaseOutCirc();
+            leanButtonDescription = LeanTween.moveY(button.GetComponent<RectTransform>(), initialYOffset, animationDuration).setEaseOutCirc().setDelay(animationDelay);
             leanButtonDescription.setOnComplete(() => button.gameObject.SetActive(false));
+            //animationDuration += animationDelay;
         }
 
         buttonsShowed = false;
 
     }
+
 
 }
