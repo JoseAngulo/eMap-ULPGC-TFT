@@ -35,7 +35,7 @@ public class MapLayerManager : MonoBehaviour
 
     }
     
-    private void setLayerTexture(string layerName)
+    public void setLayerTexture(string layerName)
     {
         
         Debug.Log("BUSCANDO PLANOS");

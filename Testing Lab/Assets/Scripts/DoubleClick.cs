@@ -162,6 +162,8 @@ public class DoubleClick : MonoBehaviour
 
     private void activateArrow() { building.selectedArrow.SetActive(true); }
 
+    public void activateArrow(BuildingProperties buildingProperties) { buildingProperties.selectedArrow.SetActive(true); }
+
     private void OpenURLOnBrowser()
     {
 
