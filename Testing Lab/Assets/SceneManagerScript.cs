@@ -29,8 +29,8 @@ public class SceneManagerScript : MonoBehaviour
             Transform pivotTransform = buildingInfo.camera.transform;
             Transform cameraTransform = pivotTransform.GetChild(0).transform;
 
-            Vector3 pivotPosition = new Vector3(pivotTransform.localPosition.x, pivotTransform.localPosition.y, pivotTransform.localPosition.z);
-            Vector3 pivotRotation = new Vector3(pivotTransform.localRotation.eulerAngles.x, pivotTransform.localRotation.eulerAngles.y, pivotTransform.localRotation.eulerAngles.z);
+            Vector3 pivotPosition = new Vector3(pivotTransform.position.x, pivotTransform.position.y, pivotTransform.position.z);
+            Vector3 pivotRotation = new Vector3(pivotTransform.rotation.eulerAngles.x, pivotTransform.rotation.eulerAngles.y, pivotTransform.rotation.eulerAngles.z);
             Vector3 cameraPosition = new Vector3(cameraTransform.localPosition.x, cameraTransform.localPosition.y, cameraTransform.localPosition.z);
 
             // Move and rotate camera and it's pivot.
