@@ -81,6 +81,26 @@ public class WebCamera : MonoBehaviour
                firstExecution = false;
             }
 
+            Quaternion QT;
+            QT = Quaternion.Euler(_XForm_Parent.rotation.y, _XForm_Parent.rotation.x, 0);
+
+            if (!firstExecution)
+            {
+                //Debug.Log("CASO INICIAL DE QUATERNION");
+                QT = Quaternion.Euler(_LocalRotation.y, _LocalRotation.x, 0);
+                _XForm_Parent.rotation = Quaternion.Lerp(_XForm_Parent.rotation, QT, Time.deltaTime * OrbitDampening);
+
+                Vector3 actualRotation = _XForm_Parent.rotation.eulerAngles;
+                actualRotation.y = Mathf.Clamp(actualRotation.y, 10f, 90f);
+                //_XForm_Parent.rotation = Quaternion.Euler(actualRotation);
+
+                //_XForm_Parent.eulerAngles = new Vector3(0, Mathf.Clamp(_XForm_Parent.rotation.y, 5f,90f), 0);
+                //Debug.Log("Rotación del padre : " + _XForm_Parent.rotation.eulerAngles);
+                //Debug.Log("Transform.position tras ROTAR: " + transform.position);
+                //_XForm_Parent.localPosition = new Vector3(transform.localPosition.x, Mathf.Clamp(transform.localPosition.y, minZoom, maxZoom), transform.localPosition.z);
+
+            }
+
         }
         else
         {
@@ -90,25 +110,7 @@ public class WebCamera : MonoBehaviour
 
         // Actual camera rig transformations 
 
-        Quaternion QT;
-        QT = Quaternion.Euler(_XForm_Parent.rotation.y, _XForm_Parent.rotation.x, 0);
-
-        if (!firstExecution)
-        {
-            //Debug.Log("CASO INICIAL DE QUATERNION");
-            QT = Quaternion.Euler(_LocalRotation.y, _LocalRotation.x, 0);
-            _XForm_Parent.rotation = Quaternion.Lerp(_XForm_Parent.rotation, QT, Time.deltaTime * OrbitDampening);
-
-            Vector3 actualRotation = _XForm_Parent.rotation.eulerAngles;
-            actualRotation.y = Mathf.Clamp(actualRotation.y, 10f, 90f);
-            //_XForm_Parent.rotation = Quaternion.Euler(actualRotation);
-
-            //_XForm_Parent.eulerAngles = new Vector3(0, Mathf.Clamp(_XForm_Parent.rotation.y, 5f,90f), 0);
-            //Debug.Log("Rotación del padre : " + _XForm_Parent.rotation.eulerAngles);
-            //Debug.Log("Transform.position tras ROTAR: " + transform.position);
-            //_XForm_Parent.localPosition = new Vector3(transform.localPosition.x, Mathf.Clamp(transform.localPosition.y, minZoom, maxZoom), transform.localPosition.z);
-
-        }
+        
 
               
         if (!rotating)
@@ -193,15 +195,12 @@ public class WebCamera : MonoBehaviour
                 }
 
                 transform.position += direction;
-                Debug.Log("Transform.position: " + transform.position);
-                Debug.Log("Clampeito de la altura: " + Mathf.Clamp(transform.position.y, minZoom, maxZoom));
                 
 
                 //Vector3 zClamp = new Vector3(0f,0f,Mathf.Clamp(transform.position.z, minZoom, maxZoom));
                 //transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, Mathf.Clamp(transform.localPosition.z, minZoom, maxZoom));
                 transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, minZoom, maxZoom), transform.position.z);
                 //Debug.Log("Fijando posición en Y tras zoom. Posición: " + transform.localPosition.y + "Valor de Math.Clamp(): " + Mathf.Clamp(transform.localPosition.y, minZoom, maxZoom));
-                Debug.Log("Transform.position tras clampeo: " + transform.position);
                 // Update camera pivot to new position on the map
                 Vector3 pivotSpawnPoint;
 
@@ -230,12 +229,5 @@ public class WebCamera : MonoBehaviour
 
         
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("La cámara ha colisionado con algo...");
-    }
-
-
 
 }

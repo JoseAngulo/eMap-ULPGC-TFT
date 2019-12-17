@@ -14,7 +14,7 @@ public class CampusInfoScript : MonoBehaviour
     public struct BuildingPosition
     {
         public GameObject building;
-        public Camera cameraPosition;
+        public GameObject camera;
     }
 
     private void Awake()

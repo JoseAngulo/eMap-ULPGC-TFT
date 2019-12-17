@@ -81,14 +81,30 @@ public class CameraUtilities : MonoBehaviour
         
         cameraPivot.transform.position = pivotPosition;
 
+        Vector3 eulers = cameraPivot.transform.eulerAngles;
+
         // Change pivot rotation
-        cameraPivot.transform.rotation = Quaternion.Euler(pivotRotation);
+
+
+        Debug.Log("ÁNGULOS DEL PIVOT ----> X: " + cameraPivot.transform.rotation.x + " Y: " + cameraPivot.transform.rotation.y + " Z: " + cameraPivot.transform.rotation.z);
+        Debug.Log("ÁNGULOS DEL PIVOT EN EULER ----> X: " + eulers.x + " Y: " + eulers.y + " Z: " + eulers.z);
+
+        Debug.Log("ÁNGULOS PARA ROTAR ----> X: " + pivotRotation.x + " Y: " + pivotRotation.y + " Z: " + pivotRotation.z);
+        Quaternion qt = Quaternion.Euler(pivotRotation);
+        Debug.Log("ÁNGULOS PARA ROTAR EN EULER ----> X: " + qt.eulerAngles.x + " Y: " + qt.eulerAngles.y + " Z: " + qt.eulerAngles.z);
+
+
+        cameraPivot.transform.eulerAngles = pivotRotation;
+
+        Debug.Log(" === PIVOT TRANSFORMADO ===");
+        Debug.Log("ÁNGULOS DEL PIVOT ----> X: " + cameraPivot.transform.rotation.x + " Y: " + cameraPivot.transform.rotation.y + " Z: " + cameraPivot.transform.rotation.z);
+        Debug.Log("ÁNGULOS DEL PIVOT EN EULER ----> X: " + cameraPivot.transform.eulerAngles.x + " Y: " + cameraPivot.transform.eulerAngles.y + " Z: " + cameraPivot.transform.eulerAngles.z);
 
         //mainCamera.transform.parent = cameraPivot;
 
         //mainCamera.transform.position = new Vector3(0,0,-5f);
 
-        
+
 
     }
 

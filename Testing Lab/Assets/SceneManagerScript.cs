@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static CampusInfoScript;
 
 public class SceneManagerScript : MonoBehaviour
@@ -18,6 +20,28 @@ public class SceneManagerScript : MonoBehaviour
 
     public void cameraToBuildingPosition(int index)
     {
+        if (index == 0 || index == 1)
+        {
+            // Get pivot and camera position asigned to selected building and their position and rotation
+            BuildingPosition buildingInfo = campusInfo.getBuilding(index);
+
+            //Transform buildingTransform = buildingInfo.building.transform;
+            Transform pivotTransform = buildingInfo.camera.transform;
+            Transform cameraTransform = pivotTransform.GetChild(0).transform;
+
+            Vector3 pivotPosition = new Vector3(pivotTransform.localPosition.x, pivotTransform.localPosition.y, pivotTransform.localPosition.z);
+            Vector3 pivotRotation = new Vector3(pivotTransform.localRotation.eulerAngles.x, pivotTransform.localRotation.eulerAngles.y, pivotTransform.localRotation.eulerAngles.z);
+            Vector3 cameraPosition = new Vector3(cameraTransform.localPosition.x, cameraTransform.localPosition.y, cameraTransform.localPosition.z);
+
+            // Move and rotate camera and it's pivot.
+            cameraUtilities.moveCameraToBuilding(cameraPosition, pivotPosition, pivotRotation);
+
+            // Activate selected building arrow
+            arrowActivator.GetComponent<DoubleClick>().activateArrow(buildingInfo.building.GetComponent<BuildingProperties>());
+
+        }
+
+
         if (index == 14 || index == 5 || index == 8)
         {
 
@@ -25,7 +49,7 @@ public class SceneManagerScript : MonoBehaviour
             BuildingPosition buildingInfo = campusInfo.getBuilding(index);
 
             Transform buildingTransform = buildingInfo.building.transform;
-            Transform cameraTransform = buildingInfo.cameraPosition.transform;
+            Transform cameraTransform = buildingInfo.camera.transform;
 
             Vector3 cameraPosition = new Vector3();
             Vector3 pivotPosition = new Vector3();
@@ -40,7 +64,7 @@ public class SceneManagerScript : MonoBehaviour
 
             if (index == 5)
             {
-                cameraPosition = new Vector3(0f, 0f, - 1.903279f);
+                cameraPosition = new Vector3(0f, 0f, -1.903279f);
                 pivotPosition = new Vector3(-0.9377327f, 4.726122e-17f, -2.846585f);
                 pivotRotation = new Vector3(44f, 54.8f, 0f);
             }
@@ -63,4 +87,13 @@ public class SceneManagerScript : MonoBehaviour
 
     }
 
+
+    private void checkTafiraBuildings(int index)
+    {
+        
+    }
+
+    
+
+    
 }
