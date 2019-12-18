@@ -20564,12 +20564,6 @@ MonoBehaviour:
   pathCreator: {fileID: 1320667657}
   endOfPathInstruction: 0
   speed: 0.04
---- !u!1 &940291341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2628649993437400130, guid: 9fd81ae95ce33d948ba85d3f1b80596b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2628649991898666546}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &944666870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30876,7 +30870,7 @@ MonoBehaviour:
   campusInfo: {fileID: 1963421214}
   cameraUtilities: {fileID: 58267340}
   arrowActivator: {fileID: 1732049862}
-  mapLayerManager: {fileID: 0}
+  mapLayerManager: {fileID: 374352820}
 --- !u!4 &1484217033
 Transform:
   m_ObjectHideFlags: 0
@@ -31312,13 +31306,17 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: "Facultad teolog\xEDa"
       m_Image: {fileID: 0}
-    - m_Text: "Ingenier\xEDa Inform\xE1tica"
+    - m_Text: Ing. industriales y civiles
       m_Image: {fileID: 0}
-    - m_Text: "Pabell\xF3n B"
+    - m_Text: "Ingenier\xEDa inform\xE1tica"
       m_Image: {fileID: 0}
-    - m_Text: Residencias
+    - m_Text: "Pabell\xF3n B y Capilla"
       m_Image: {fileID: 0}
-    - m_Text: Telecomunicaciones
+    - m_Text: Residencia Universitaria
+      m_Image: {fileID: 0}
+    - m_Text: Residencia Universitaria 2
+      m_Image: {fileID: 0}
+    - m_Text: Telecom. (barracones y aulario)
       m_Image: {fileID: 0}
     - m_Text: Tienda ulpgc
       m_Image: {fileID: 0}
@@ -40452,49 +40450,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positions:
   - building: {fileID: 85915529}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 3c650a5d47188764ea9d1873dd651fb1, type: 3}
   - building: {fileID: 1364553932}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: f8681ef623dd3b646a10977e01d051b8, type: 3}
   - building: {fileID: 265861293}
-    camera: {fileID: 0}
+    camera: {fileID: 7334280204065853282, guid: 17196ed4fc4798b4098e5e711c20f13d,
+      type: 3}
   - building: {fileID: 1909061177}
-    camera: {fileID: 0}
+    camera: {fileID: 2327315990122927557, guid: e4878866fa5fe6447bc073c8aa1fed33,
+      type: 3}
   - building: {fileID: 484059683}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 656c4fb0cb5f4304d927eefe7dca7e90, type: 3}
   - building: {fileID: 1522968549}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 89c65c8d154a2c943b20fcd64fb03aac, type: 3}
   - building: {fileID: 45081168}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: ee32dc74732c50040966db60d46612e4, type: 3}
   - building: {fileID: 1033017335}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: d4221ea8961f8d0479e844b858410be2, type: 3}
   - building: {fileID: 1153416164}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 51146fbae75148845a27e4eab7b3b889, type: 3}
   - building: {fileID: 418906120}
-    camera: {fileID: 0}
+    camera: {fileID: 8365398267958105422, guid: 35feb658743b8ac48a1f47aaff0c7b57,
+      type: 3}
   - building: {fileID: 639376493}
-    camera: {fileID: 0}
+    camera: {fileID: 5994307812412542694, guid: ae0f3c47b3e26564bb40cc911da87981,
+      type: 3}
   - building: {fileID: 2068571604}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 033007f443dc3bd4a988c4ea3517ee41, type: 3}
   - building: {fileID: 2068571604}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 033007f443dc3bd4a988c4ea3517ee41, type: 3}
   - building: {fileID: 216403248}
-    camera: {fileID: 0}
-  - building: {fileID: 940291341}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 27c51c536f614e34eb6311a95dbf2401, type: 3}
+  - building: {fileID: 1590809325}
+    camera: {fileID: 1851198543, guid: 66d350695f73f5a4bbde6cf615d2d8bf, type: 3}
   - building: {fileID: 1764800091}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 69957741c7e1f36408e9ffcfaa642d27, type: 3}
   - building: {fileID: 1773491841}
-    camera: {fileID: 0}
+    camera: {fileID: 7469578608436519727, guid: 1c9862f2ea3a21e428cea41246e8f23c,
+      type: 3}
   - building: {fileID: 1808569127}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 0d450fd0161e18a418d67d8e04f82373, type: 3}
   - building: {fileID: 72207528}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 561d09d58bc93924fb0ae29eaf7c4440, type: 3}
   - building: {fileID: 1112054918}
-    camera: {fileID: 0}
+    camera: {fileID: 7434955988636579218, guid: 2d35428469dd43c43b995b57c4a1adb4,
+      type: 3}
   - building: {fileID: 285214813}
-    camera: {fileID: 0}
+    camera: {fileID: 6728565071062408901, guid: 6eb9cf6d33ac75346bea20cc3247f0b4,
+      type: 3}
   - building: {fileID: 729076680}
-    camera: {fileID: 0}
+    camera: {fileID: 1851198543, guid: 98effc424c1c0d143ae1af40dcc209a0, type: 3}
 --- !u!4 &1963421215
 Transform:
   m_ObjectHideFlags: 0
@@ -42200,36 +42205,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
---- !u!1 &2073555153
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2073555154}
-  m_Layer: 0
-  m_Name: BuildingCameras
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2073555154
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073555153}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 38
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2073807888 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 4e7081a3bcec79b4b9adb0567ddfdafd,
