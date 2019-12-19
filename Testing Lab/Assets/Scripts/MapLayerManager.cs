@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using System.IO;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +13,7 @@ public class MapLayerManager : MonoBehaviour
     private ImageDownloader downloader;
     private int tilesNumber;
 
-    private void Start()
+    private void Awake()
     {
         downloader = gameObject.AddComponent<ImageDownloader>();
         tilesNumber = 4;
@@ -46,6 +43,8 @@ public class MapLayerManager : MonoBehaviour
         byte[] imageBytes;
         Texture2D texture = new Texture2D(2048, 2048);
 
+        Debug.Log("CARGANDO TODAS LAS TEXTURAS");
+        Debug.Log("VALOR DE TILESNUMBER = " + tilesNumber);
         for (int i = 0; i < tilesNumber; i++)
         {
             
@@ -82,7 +81,9 @@ public class MapLayerManager : MonoBehaviour
                     StartCoroutine(downloader.loadImageFromServer(loadPath + ".jpg", planes[i]));
                 }
             }
-        } 
+        }
+        Debug.Log("SE HA TERMINADO DE CARGAR TODAS LAS TEXTURAS... ");
+
     } 
     
     private string getImageExtension(string loadPath, string fileName)

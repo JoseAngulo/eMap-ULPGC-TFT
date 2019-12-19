@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,7 +7,7 @@ public class CampusInfoScript : MonoBehaviour
 {
     private Hashtable indexedBuildings = new Hashtable();
     public BuildingPosition[] positions;
-    //public string loadedLayerName = "OrtoExpress";
+    private static string loadedLayerName = "OrtoExpress";
 
     [Serializable]
     public struct BuildingPosition
@@ -17,7 +16,7 @@ public class CampusInfoScript : MonoBehaviour
         public GameObject camera;
     }
 
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < positions.Length; i++)
         {
@@ -34,6 +33,17 @@ public class CampusInfoScript : MonoBehaviour
     {
         Debug.Log("DEVOLVIENDO EL EDIFICIO CON ÍNDICE..." + index);
         return (BuildingPosition)indexedBuildings[index];
+    }
+
+    public void setLoadedLayerName(string layerName)
+    {
+        Debug.Log("CAMBIANDO LA TEXTURA " + loadedLayerName + " A " + layerName);
+        loadedLayerName = layerName;
+    }
+
+    public string getLoadedLayer()
+    {
+        return loadedLayerName;
     }
 
 

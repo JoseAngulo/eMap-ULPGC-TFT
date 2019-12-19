@@ -344,38 +344,6 @@ RectTransform:
   m_AnchoredPosition: {x: 32.17504, y: -9.399902}
   m_SizeDelta: {x: 246.42, y: 46.55}
   m_Pivot: {x: 0, y: 1}
---- !u!1 &54646358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 54646359}
-  m_Layer: 0
-  m_Name: BuildingCameras
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &54646359
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 54646358}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.986435, y: 1.110223e-16, z: -0.2642814}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 932941700}
-  - {fileID: 1030760685}
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &67665580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2592,9 +2560,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positions:
   - building: {fileID: 551319738}
-    camera: {fileID: 932941699}
+    camera: {fileID: 273074961728796475, guid: 8faf51cb37f7bc84fa140c8205c9f766, type: 3}
   - building: {fileID: 165998273}
-    camera: {fileID: 1030760684}
+    camera: {fileID: 663519477310352221, guid: a8ebe852702644b4aa048bdf421476c0, type: 3}
 --- !u!4 &411592847
 Transform:
   m_ObjectHideFlags: 0
@@ -4105,80 +4073,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c5175968e83f3444809e289dbd78a08, type: 3}
---- !u!1001 &724047463
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 54646359}
-    m_Modifications:
-    - target: {fileID: 273074961728796475, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_Name
-      value: CameraAnexoHumanidades
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796475, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.011504173
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.03402832
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.3470329
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.51724195
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.241194
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.74421394
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8faf51cb37f7bc84fa140c8205c9f766, type: 3}
 --- !u!1 &742701723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4307,6 +4201,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 411592846}
+        m_MethodName: setLoadedLayerName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LIDAR
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -5807,18 +5712,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8529559, y: 0.4033809, z: 2.3259437}
   m_Center: {x: -0.15571073, y: 0.20658328, z: -0.25930008}
---- !u!1 &932941699 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 273074961728796475, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-    type: 3}
-  m_PrefabInstance: {fileID: 724047463}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &932941700 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 273074961728796476, guid: 8faf51cb37f7bc84fa140c8205c9f766,
-    type: 3}
-  m_PrefabInstance: {fileID: 724047463}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &955755741
 GameObject:
   m_ObjectHideFlags: 0
@@ -6159,6 +6052,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 411592846}
+        m_MethodName: setLoadedLayerName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OrtoExpress
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1019186550
@@ -6217,18 +6121,6 @@ RectTransform:
   m_AnchoredPosition: {x: 171, y: -119.4}
   m_SizeDelta: {x: 158.6, y: 160.19}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1030760684 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 663519477310352221, guid: a8ebe852702644b4aa048bdf421476c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1499900108}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1030760685 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1499900108}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1033680201
 GameObject:
   m_ObjectHideFlags: 0
@@ -7148,6 +7040,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 411592846}
+        m_MethodName: setLoadedLayerName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Callejero
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -8823,80 +8726,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490862061}
   m_CullTransparentMesh: 0
---- !u!1001 &1499900108
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 54646359}
-    m_Modifications:
-    - target: {fileID: 663519477310352221, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_Name
-      value: CameraBibliotecaHumanidades
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352221, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.69113445
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.4772592
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.27016574
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7275481
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.40558648
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.4828911
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 663519477310352218, guid: a8ebe852702644b4aa048bdf421476c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a8ebe852702644b4aa048bdf421476c0, type: 3}
 --- !u!1 &1586868316
 GameObject:
   m_ObjectHideFlags: 0
@@ -10772,36 +10601,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1874551331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1874551332}
-  m_Layer: 0
-  m_Name: BuildingCameras
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1874551332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874551331}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.652501, y: 0.1722337, z: -0.5269007}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1927047165
 GameObject:

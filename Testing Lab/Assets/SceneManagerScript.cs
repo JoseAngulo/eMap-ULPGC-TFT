@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using static CampusInfoScript;
 
 public class SceneManagerScript : MonoBehaviour
@@ -12,12 +8,14 @@ public class SceneManagerScript : MonoBehaviour
     public GameObject arrowActivator;
     public MapLayerManager mapLayerManager;
     private int lastBuildingIndex = 0;
-    /*
+    
     private void Start()
     {
-        mapLayerManager.setLayerTexture(campusInfo.loadedLayerName);
+        Debug.Log("LLAMANDO AL ACTUALIZADOR DE TEXTURAS DESDE SCENE_MANAGER");
+        mapLayerManager.setLayerTexture(campusInfo.getLoadedLayer());
+        Debug.Log("LA TEXTURA CARGADA DEBERÍA SER => " + campusInfo.getLoadedLayer());
     }
-    */
+    
 
     public void cameraToBuildingPosition(int index)
     {
