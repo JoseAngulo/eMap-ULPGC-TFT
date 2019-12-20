@@ -67,7 +67,7 @@ public class WebCamera : MonoBehaviour
 
             if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
             {
-                Debug.Log($"X: {Input.GetAxis("Mouse X")}");
+                //Debug.Log($"X: {Input.GetAxis("Mouse X")}");
 
                 _LocalRotation.x += Input.GetAxis("Mouse X") * MouseSensitivity;
                 _LocalRotation.y -= Input.GetAxis("Mouse Y") * MouseSensitivity;

@@ -15,11 +15,20 @@ public class CompassNeedleMovement : MonoBehaviour
         Vector3 camPos = camera.WorldToScreenPoint(camera.transform.position);
         Vector3 northPos = camera.WorldToScreenPoint(north.position);
 
-        Vector3 northDirection = compassCenter.position - northPos;
+        // Discard Y component to work with 2 dimensions
+        Vector3 cameraForward = camera.transform.forward;
+        cameraForward.y = 0;
 
-        float rotationZ = Mathf.Atan2(northDirection.y, northDirection.x) * Mathf.Rad2Deg;
+        Vector3 northDirection = north.position - camera.transform.position;
+        northDirection.y = 0;
 
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ + 90f);
+        // Get the angle between the direction the camera is facing and the direction of the North
+        float angles = Vector3.SignedAngle(cameraForward, northDirection, north.up);
+
+        //float rotationZ = Mathf.Atan2(northDirection.y, northDirection.x) * Mathf.Rad2Deg;
+
+        // Rotate needle around Z axis to point towars the North
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, -angles);
                 
     }
 }
