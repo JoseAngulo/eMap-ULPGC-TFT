@@ -8,7 +8,7 @@ public class CompassNeedleMovement : MonoBehaviour
     public Camera camera;
     private Vector3 targetDirection;
 
-    public RectTransform compassCenter;
+    //public RectTransform compassCenter;
        
     void Update()
     {
