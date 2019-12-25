@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class WebCamera : MonoBehaviour
 {
@@ -63,6 +64,9 @@ public class WebCamera : MonoBehaviour
         //Rotation of the Camera based on Mouse Coordinates
         if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftShift))
         {
+            // Don't perform any action if an UI element was clicked
+            if (EventSystem.current.IsPointerOverGameObject()) { return; }
+
             rotating = true;
 
             if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
@@ -118,6 +122,9 @@ public class WebCamera : MonoBehaviour
 
             if (Input.GetMouseButton(0))            //Called while user holdin left mouse button
             {
+                // Don't perform any action if an UI element was clicked
+                if (EventSystem.current.IsPointerOverGameObject()) { return; }
+
                 Ray ray = camera.ScreenPointToRay(Input.mousePosition);    //New ray from middle of camera to position of mouse
                 RaycastHit hit;                                         //In hit will be stored informations about object that ray hit
 
@@ -170,6 +177,10 @@ public class WebCamera : MonoBehaviour
 
             if (Input.GetAxis("Mouse ScrollWheel") != 0)
             {
+
+                // Don't perform any action if an UI element was clicked
+                if (EventSystem.current.IsPointerOverGameObject()) { return; }
+
                 // Detach pivot from Camera
                 this.transform.parent = null;
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DoubleClick : MonoBehaviour
 {
@@ -58,6 +59,9 @@ public class DoubleClick : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            // Don't perform any action if an UI element was clicked
+            if (EventSystem.current.IsPointerOverGameObject()) { return; }
+
             clickCounter++;
 
             if (clickCounter == 1)
