@@ -1,0 +1,97 @@
+
+body {
+	background-color: rgb(230, 241, 255) !important;
+}
+
+.game-canvas {
+	position: relative;
+	display:block;
+}
+
+.game-player {
+	position: absolute;
+	display:block;
+}
+
+.footer {
+	min-height: 50px;
+}
+
+.clearer {
+	clear: both;
+    line-height: 1em;
+}
+
+.h1image{
+	background-image: url(../resources/images/el_pensador_recortado.png);
+  	background-size: fill;
+  	background-repeat: none;
+  	padding-top: 95px;
+    padding-bottom: 80px !important;
+}
+
+.controls {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.radio {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5px;
+  
+}
+
+input.radio_circle{
+	margin-bottom: 10px;
+}
+
+h2{
+	font-size: 1.75em !important;
+}
+
+#contenedor_principal{
+	background-color: white;
+}
+
+.campus_selection{
+	padding-bottom: 40px !important;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 1.5em;
+    color: #000000;
+    border-bottom: 1px inset #1172E8;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+    max-width: 25em;
+    margin: 35px auto;
+}
+
+.pie_redes{
+	background-color: rgba();
+}
+
+.webgl-content * {border: 0; margin: 0; padding: 0}
+.webgl-content { /*position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);*/ }
+
+.webgl-content .logo, .progress {position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+.webgl-content .logo {background: url('../resources/TemplateData/progressLogo.Light.png') no-repeat center / contain; width: 154px; height: 130px;}
+.webgl-content .progress {height: 18px; width: 141px; margin-top: 90px;}
+.webgl-content .progress .empty {background: url('../resources/TemplateData/progressEmpty.Light.png') no-repeat right / cover; float: right; width: 100%; height: 100%; display: inline-block;}
+.webgl-content .progress .full {background: url('../resources/TemplateData/progressFull.Light.png') no-repeat left / cover; float: left; width: 0%; height: 100%; display: inline-block;}
+
+.webgl-content .logo.Dark {background-image: url('../resources/TemplateData/progressLogo.Dark.png');}
+.webgl-content .progress.Dark .empty {background-image: url('../resources/TemplateData/progressEmpty.Dark.png');}
+.webgl-content .progress.Dark .full {background-image: url('../resources/TemplateData/progressFull.Dark.png');}
+
+.webgl-content .footer {margin-top: 5px; height: 38px; line-height: 38px; font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 18px;}
+.webgl-content .footer .webgl-logo, .title, .fullscreen {height: 100%; display: inline-block; background: transparent center no-repeat;}
+.webgl-content .footer .webgl-logo {background-image: url('../resources/TemplateData/webgl-logo.png'); width: 204px; float: left;}
+.webgl-content .footer .title {margin-right: 10px; float: right;}
+.webgl-content .footer .fullscreen {background-image: url('../resources/TemplateData/fullscreen.png'); width: 38px; float: right;}

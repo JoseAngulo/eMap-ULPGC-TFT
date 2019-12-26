@@ -1,0 +1,101 @@
+/* CSS GENERAL PARA LOS H1 (ESCRITORIO) */
+h1.titulo_seccion_movil_ml{display:none;}
+
+.h1image, #titulo_menu_izq_h1image {
+	font-size: 32px;
+	font-weight: 300;
+	color: white;
+	text-shadow: 0 0 10px rgb(0,0,0);
+	padding-left: 32px;
+	padding-right: 32px;
+	padding-top: 75px;
+	padding-bottom: 30px !important;
+	margin-top: 0px !important;
+	border: none;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+#titulo_menu_izq_ml{
+	font-size: 32px;
+	font-weight: 300;
+	color: white;
+	text-shadow: 0 0 10px rgb(0,0,0);
+	padding-left: 32px;
+	padding-right: 32px;
+	padding-top: 75px;
+	padding-bottom: 30px !important;
+	margin-top: 0px !important;
+	border: none;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+#sombra_separadora {
+	position: absolute;
+	z-index:  -200;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.380392) 0%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 100%);
+}
+
+#titulo_menu_izq{
+	margin-top: 35px !important;
+}
+
+
+/* VERSIÓN MÓVIL */
+@media only screen and (max-width: 767px) {
+h1 #titulo_menu_izq_ml{display:none;}
+h1.titulo_seccion_movil_ml{
+	display:block;
+	font-size: 28px !important;
+	font-weight: 300;
+    color: white;
+	padding-left: 4%;
+	padding-right: 18px;
+	padding-top: 60px;
+	padding-bottom: 10px !important;
+	background-size: cover;
+	/*margin-top: 71px !important;*/
+	margin-left: -4% !important;
+	margin-right: -4% !important;
+	border: none !important;
+	border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+	
+#titulo_menu_izq_ml{
+	font-size: 14px;
+	font-weight: 300;
+	color: black;
+	text-shadow: 0 0 0px rgb(0,0,0);
+	padding-left: 0px;
+	padding-right: 5px;
+	padding-top: 0px;
+	padding-bottom: 0px !important;
+	margin-top: 0px !important;
+	border: none;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}	
+	
+.h1image, #titulo_menu_izq_h1image {
+	font-size: 28px !important;
+	padding-left: 4%;
+	padding-right: 18px;
+	padding-top: 60px;
+	padding-bottom: 10px !important;
+	background-size: cover;
+	margin-top: 0px !important;
+	margin-left: -4% !important;
+	margin-right: -4% !important;
+	border: none !important;
+	border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#sombra_separadora {
+	display: none;
+}
+
+} /* FIN VERSIÓN MÓVIL */
+  

@@ -1,0 +1,558 @@
+jQuery(function ($) {
+
+
+	function reajustaSlider(){
+		var heightInicial = $("#slider img").height();				
+		$("#anterior").height(heightInicial);
+		$("#siguiente").height(heightInicial);
+		$("#slider").height(heightInicial);
+		$(".botones_slider").height(heightInicial);
+	}
+
+	function reajustar(){		
+		if (document.body)	
+			var ancho = (document.body.clientWidth);	
+		else	
+			var ancho = (window.innerWidth);
+		
+		var scrollBarWidth = 0;
+		if (window.innerWidth)
+		scrollBarWidth = window.innerWidth - jQuery("body").width();
+		
+		ancho = ancho + scrollBarWidth;
+		
+		// Inicio código añadido para comportamiento en IE versiones 8 o anteriores 09/01/2014
+		if($.browser.msie && parseFloat($.browser.version)<=8){
+			// Ajustar tamaños contenedores
+			if (ancho <=960){ 
+	            $("#cabecera").width(960);
+	            $(".menu_principal").width(960);
+				$("#slider").width(960);
+	            $("#contenedor_principal").width(960);
+				$("#sombra_separadora_portada").width(960);
+				$("#sombra_separadora").width(960);
+				$("#sombras_pie").width(960);
+	            $("#pie_redes").width(960);
+	            $("#pie_colaboradores").width(960);                        
+	            $("#pie_info").width(960);
+	            $("#pie_final").width(960);
+	        }else{
+		        $("#cabecera").width('auto');
+	            $(".menu_principal").width('auto');
+				$("#slider").width('auto');
+	            $("#contenedor_principal").width('auto');
+				$("#sombra_separadora_portada").width('auto');
+				$("#sombra_separadora").width('auto');
+				$("#sombras_pie").width('auto');				
+	            $("#pie_redes").width('auto');
+	            $("#pie_colaboradores").width('auto');                        
+	            $("#pie_info").width('auto');
+	            $("#pie_final").width('auto');		
+			}
+			
+	        // Comportamiento del menú principal
+			// Cambio 16/07/2014		
+			$(".menu_principal ul li").unbind("mouseenter mouseleave");
+			$('.menu_principal ul li').mouseenter(function() {
+				$(this).children('ul').css('display', 'none').stop(true, true).slideToggle(250).css('display', 'block').children('ul').css('display', 'none');
+			});
+			$('.menu_principal ul li').mouseleave(function() {
+				$(this).children('ul').stop(true, true).fadeOut(250).css('display', 'block');
+			});
+			/* $(".menu_principal ul li").hover(function(){						
+		        $(this).children("ul").slideDown("fast");
+			},
+			function(){        
+		        $(this).children("ul").slideUp("fast");
+			}); */
+			// Fin cambio 16/07/2014		
+				
+		    // Vaciamos elementos superiores de menú movil
+		    $("#enlaces_sup_menmov").html("");
+		    $("#idiomas_mov").html("");
+		    $("#bloque_submenu_izq").css("display", "block");
+			$("#columna-izq .block-menu-block").css("display", "block");
+		    $(".menu_principal ul li ul").css("display","none");  
+		
+		}else{ // Fin código añadido para comportamiento en IE versiones 8 o anteriores 09/01/2014
+		
+			// menú principal
+			if (ancho >767){
+				// Versión escritorio
+	
+				// Vaciamos elementos superiores de menú movil
+				$("#enlaces_sup_menmov").html("");
+				$("#idiomas_mov").html("");
+				
+				$("#bloque_submenu_izq").css("display", "block");
+				$("#columna-izq .block-menu-block").css("display", "block");
+				// por si estuviese abierto el page slide;	
+				$(".menu_principal ul li ul").css("display","none");
+						
+				// Cambio hecho para comportamiento menú 01/04/2014. Comentado codigo 76 - 82 y puesto codigo 83 - 88 
+				// Comportamiento menú principal
+				/*$(".menu_principal ul li").hover(function(){						
+					$(this).children("ul").slideDown("fast");
+				},
+				function(){        
+					$(this).children("ul").slideUp("fast");
+				}); */
+
+			    /* $('#main-menu li').mouseenter(function() {
+					$(this).children('ul').css('display', 'none').stop(true, true).slideToggle(250).css('display', 'block').children('ul').css('display', 'none');
+				});
+				$('#main-menu li').mouseleave(function() {
+						$(this).children('ul').stop(true, true).fadeOut(250).css('display', 'block');
+				})*/  
+				// Fin cambio 01/04/2014		
+				
+				// Cambio hecho para comportamiento menú 16/07/2014 - Comentado código del 01/04/2014 y añadido siguiente para corregir error al redimensionar en pantallla
+				$(".menu_principal ul li").unbind("mouseenter mouseleave");
+				$('.menu_principal ul li').mouseenter(function() {
+					$(this).children('ul').css('display', 'none').stop(true, true).slideToggle(250).css('display', 'block').children('ul').css('display', 'none');
+				});
+				$('.menu_principal ul li').mouseleave(function() {
+					$(this).children('ul').stop(true, true).fadeOut(250).css('display', 'block');
+				});
+				// Fin cambio 16/07/2014		
+			}
+			else{
+				$(".menu_principal ul li").unbind("mouseenter mouseleave");
+				$(".menu_principal ul li ul").css("display","block");
+				// Pintar enlaces superiores e idiomas en menú principal movil
+				$("#enlaces_sup_menmov").html($("#enlaces_ulpgc").html());
+				$("#enlaces_sup_menmov ul li.ultimo").hide();
+				$("#idiomas_mov").html($("#block-block-7").html()+"<div class='clearer'></div>");
+				$("#bloque_submenu_izq").css("display", "none");
+				$("#columna-izq .block-menu-block").css("display", "none");
+			}
+			
+			//Eliminado por el problema del menú en el móvil 21-06-2017
+			/*
+			if ($("#pageslide").css("display")== "block"){
+				//reajustaPantallaMovil(0);
+				$("#pageslide").hide();			
+				$("body").css({ marginLeft : "0" }); 
+				reajustaPantallaMovil(1);
+				reajustaSlider(); 
+			}
+			*/
+			
+			// Cambio hecho para comportamiento menú 16/07/2014 - Comentado código del 01/04/2014 y añadido siguiente para corregir error al redimensionar en pantallla
+/*			$('.menu_principal ul li').mouseenter(function() {
+				$(this).children('ul').css('display', 'none').stop(true, true).slideToggle(250).css('display', 'block').children('ul').css('display', 'none');
+			});
+			$('.menu_principal ul li').mouseleave(function() {
+				$(this).children('ul').stop(true, true).fadeOut(250).css('display', 'block');
+			}); */
+			// Fin cambio 16/07/2014
+			
+	 
+			
+
+			
+			/*if ($("#pageslide").css("display")== "block" && ancho > (767-260)){
+				$("#pageslide").hide();			
+				$("body").css({ marginLeft : "0" }); 
+				$("#content").css({ width : "auto" });
+			}*/
+			
+		} // Añadido también 09/01/2014
+		
+		if (ancho <=767) alto_bloques_pag_intermedia();
+	}
+	
+	// Función nueva 31/01/2014 para ajuste de pantalla al abrir o cerrar menu movil
+	function reajustaPantallaMovil(tipo){		
+		if (document.body)	
+			var ancho = (document.body.clientWidth);	
+		else	
+			var ancho = (window.innerWidth);
+			
+		ancho2 = ancho - 260;
+		
+		if(tipo == 0){
+			// Se esta abriendo menu movil
+			$("#cabecera").width(ancho);
+			$("#slider").width(ancho);
+			$("#slider img").width(ancho);
+	        $("#contenedor_principal").width(ancho);
+			$("#sombra_separadora_portada").width(ancho);
+			$("#sombra_separadora").width(ancho);
+			//$("#sombras_pie").width(ancho);				
+	        $("#pie_redes").width(ancho);
+	        $("#pie_colaboradores").width(ancho);                        
+	        $("#pie_info").width(ancho);
+	        $("#pie_final").width(ancho);		
+			reajustaSlider();
+			$("#content").css({ width : ancho2+"px" });
+			$("#content").css({ overflow : "hidden" });	
+			
+			// Cambiamos por boton cerrar
+			$('#amenumovil').html("<span class='ico_cerrar'></span>Cerrar</a>");
+
+		}else{
+			// Es 1 y se esta cerrando menu movil
+			$("#cabecera").width('auto');
+	        $(".menu_principal").width('auto');
+			$("#slider").width('auto');
+			$("#slider img").width('auto');
+	        $("#contenedor_principal").width('auto');
+			$("#sombra_separadora_portada").width('auto');
+			$("#sombra_separadora").width('auto');
+			//$("#sombras_pie").width('auto');				
+	        $("#pie_redes").width('auto');
+	        $("#pie_colaboradores").width('auto');                        
+	        $("#pie_info").width('auto');
+	        $("#pie_final").width('auto');
+			$("#content").css({ width : "auto" });
+			//reajustaSlider(); 				
+			
+			// Cambiamos por boton abrir
+			$('#amenumovil').html("<span class='ico_menu'></span>Men&uacute;</a>");
+		}
+	}
+	
+	function alto_bloques_pag_intermedia(){
+		// controlar altura bloques paginas intermedias
+		var altura_bloque = 0;
+		var total_bloques = $(".field-name-field-bloque-de-enlaces .field-collection-item-field-bloque-de-enlaces").length; 
+		var alturas = []
+		var numbloque = 0;
+		var altura_fila = 0;
+		var alto_filas = [];
+		var fila = 0;
+		
+		$(".field-name-field-bloque-de-enlaces .field-collection-item-field-bloque-de-enlaces").each(function (index) { 
+			alturas[index] = $(this).height();                    
+		}); 
+		
+		while(numbloque < total_bloques){ 
+			for(i=numbloque;i<=(numbloque+2);i++){
+				if(alturas[i] > altura_fila) altura_fila = alturas[i];
+				
+			}
+			
+			alto_filas[fila] = altura_fila;
+			fila++;
+			numbloque = numbloque + 3;
+			altura_fila = 0;
+		}
+		
+		var fila_actual = 1;
+		$(".field-name-field-bloque-de-enlaces .field-collection-item-field-bloque-de-enlaces").each(function (index) { 
+			if((index+1) <= (fila_actual*3)){
+				$(this).height(alto_filas[fila_actual-1]); 
+				if((index+1) == (fila_actual*3)) fila_actual++;
+			}
+		});
+		
+		
+		/*$(".field-name-field-bloque-de-enlaces .field-collection-item-field-bloque-de-enlaces").each(function (index) { 
+			if($(this).height() > altura_bloque) altura_bloque = $(this).height();                     
+		});
+		
+		$(".field-name-field-bloque-de-enlaces .field-collection-item-field-bloque-de-enlaces").each(function (index) {
+			$(this).height(altura_bloque);
+		});
+		// fin codigo para controlar altura bloques paginas intermedias */
+	}
+ 
+	reajustar();
+	
+	// Comprobacion svg
+	var svgSupport = (window.SVGSVGElement) ? true : false;
+	if (!svgSupport){
+	    $("body").addClass("no-svg");
+	}
+	
+	// Comprobacion safari y no chrome
+	var userAgent = navigator.userAgent.toLowerCase(); 
+	$.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase()); 	
+	
+	if($.browser.chrome){
+		$.browser.safari = false;
+	}
+	
+	if($.browser.safari){
+		$("body").addClass("safari");
+	}
+
+	// slider
+	$( document ).ready(function() {
+		$( "#slider img" ).load(function() {
+			reajustaSlider();
+		});	
+	});
+	
+	$(window).bind("resize",function() {
+		reajustaSlider();
+		reajustar();
+	});
+	
+	// Controlamos tamaño del pageslide en el contenido
+	$("#amenumovil").bind("click", function(){
+		if ($("#pageslide").css("display") == "none"){
+			/* Comentado 30/01/2014
+			$("header").css("width","767px");			
+			$("section").css("width","767px");			
+			$("footer").css("width","767px");			
+			reajustaSlider(); */
+			
+			/* Añadido 31/01/2014 */
+			reajustaPantallaMovil(0);
+			/* fin añadido 31/01/2014 */	
+		}
+		/* Añadido 31/01/2014 */
+		else{
+			reajustaPantallaMovil(1);
+		}
+		/* fin añadido 31/01/2014 */	
+	});
+	
+	$(document).click(function(){
+		if ($("#pageslide").css("display") == "block"){
+			reajustaPantallaMovil(1);
+		}
+	});
+
+	/*$(document).bind('click keyup', function(e) {		
+		if ($("#pageslide").css("width")== "260px"){			
+			$("header").css("width","auto");			
+			$("section").css("width","auto");			
+			$("footer").css("width","auto");
+			reajustaSlider();
+		}	
+			
+	});*/
+	
+	// menú interior izquierdo 	
+	$("#titulo_menu_izq").click(function(){
+		// Comportamiento según ancho pantalla. Par movil se despliega o repliega menu interior pero en escritorio no hay efecto
+		if (document.body)	
+			var ancho_pantalla = (document.body.clientWidth);	
+		else	
+			var ancho_pantalla = (window.innerWidth);
+		
+		if(ancho_pantalla <= 767){
+			// Código para casos de menús hechos manualmente para mostrar diseño
+			/* if($("#bloque_submenu_izq").css("display") == 'none'){
+				$("#bloque_submenu_izq").slideDown("fast");
+				$("#titulo_menu_izq span").removeClass("flecha_abajo");
+				$("#titulo_menu_izq span").addClass("flecha_arriba");
+			}else{
+				$("#bloque_submenu_izq").slideUp("fast");
+				$("#titulo_menu_izq span").removeClass("flecha_arriba");
+				$("#titulo_menu_izq span").addClass("flecha_abajo");
+			}
+			
+			// Código real y definitivo para comportamiento de menú interior hechos con menú block
+			if($("#columna-izq .block-menu-block").css("display") == 'none'){
+				$("#columna-izq .block-menu-block").slideDown("fast");
+				$("#titulo_menu_izq span").removeClass("flecha_abajo");
+				$("#titulo_menu_izq span").addClass("flecha_arriba");
+			}else{
+				$("#columna-izq .block-menu-block").slideUp("fast");
+				$("#titulo_menu_izq span").removeClass("flecha_arriba");
+				$("#titulo_menu_izq span").addClass("flecha_abajo");
+			} */
+
+			// Código para casos de menús hechos manualmente para mostrar diseño  con nuevas especificaciones18-03-2015
+			if($("#bloque_submenu_izq").css("display") == 'none'){
+				$("#bloque_submenu_izq").slideDown("fast");
+				$("#titulo_menu_izq span.flecha_titulo").removeClass("flecha_abajo");
+				$("#titulo_menu_izq span.flecha_titulo").addClass("flecha_arriba");
+				$("#titulo_menu_izq .texto_titulo strong").html("Ocultar &iacute;ndice de ");
+			}else{
+				$("#bloque_submenu_izq").slideUp("fast");
+				$("#titulo_menu_izq span.flecha_titulo").removeClass("flecha_arriba");
+				$("#titulo_menu_izq span.flecha_titulo").addClass("flecha_abajo");
+				$("#titulo_menu_izq .texto_titulo strong").html("Mostrar &iacute;ndice de ");
+			}			
+			
+			// Código real y definitivo para comportamiento de menú interior hechos con menú block con nuevas especificaciones18-03-2015
+			if($("#columna-izq .block-menu-block").css("display") == 'none'){
+				$("#columna-izq .block-menu-block").slideDown("fast");
+				$("#titulo_menu_izq span.flecha_titulo").removeClass("flecha_abajo");
+				$("#titulo_menu_izq span.flecha_titulo").addClass("flecha_arriba");
+				$("#titulo_menu_izq .texto_titulo strong").html("Ocultar &iacute;ndice de ");
+			}else{
+				$("#columna-izq .block-menu-block").slideUp("fast");
+				$("#titulo_menu_izq span.flecha_titulo").removeClass("flecha_arriba");
+				$("#titulo_menu_izq #flecha").addClass("flecha_abajo");
+				$("#titulo_menu_izq .texto_titulo strong").html("Mostrar &iacute;ndice de ");				
+			}									
+		}
+	 });	
+	 
+	// menú interior izquierdo 	H1 Image
+	$("#titulo_menu_izq_ml").click(function(){
+		// Comportamiento según ancho pantalla. Par movil se despliega o repliega menu interior pero en escritorio no hay efecto
+		if (document.body)	
+			var ancho_pantalla = (document.body.clientWidth);	
+		else	
+			var ancho_pantalla = (window.innerWidth);
+		
+		if(ancho_pantalla <= 767){
+			// Código para casos de menús hechos manualmente para mostrar diseño
+			/* if($("#bloque_submenu_izq").css("display") == 'none'){
+				$("#bloque_submenu_izq").slideDown("fast");
+				$("#titulo_menu_izq span").removeClass("flecha_abajo");
+				$("#titulo_menu_izq span").addClass("flecha_arriba");
+			}else{
+				$("#bloque_submenu_izq").slideUp("fast");
+				$("#titulo_menu_izq span").removeClass("flecha_arriba");
+				$("#titulo_menu_izq span").addClass("flecha_abajo");
+			}
+			
+			// Código real y definitivo para comportamiento de menú interior hechos con menú block
+			if($("#columna-izq .block-menu-block").css("display") == 'none'){
+				$("#columna-izq .block-menu-block").slideDown("fast");
+				$("#titulo_menu_izq span").removeClass("flecha_abajo");
+				$("#titulo_menu_izq span").addClass("flecha_arriba");
+			}else{
+				$("#columna-izq .block-menu-block").slideUp("fast");
+				$("#titulo_menu_izq span").removeClass("flecha_arriba");
+				$("#titulo_menu_izq span").addClass("flecha_abajo");
+			} */
+
+			// Código para casos de menús hechos manualmente para mostrar diseño  con nuevas especificaciones18-03-2015
+			if($("#bloque_submenu_izq").css("display") == 'none'){
+				$("#bloque_submenu_izq").slideDown("fast");
+				$("#titulo_menu_izq_ml span.flecha_titulo").removeClass("flecha_abajo");
+				$("#titulo_menu_izq_ml span.flecha_titulo").addClass("flecha_arriba");
+				$("#titulo_menu_izq_ml .texto_titulo strong").html("Ocultar &iacute;ndice de ");
+			}else{
+				$("#bloque_submenu_izq").slideUp("fast");
+				$("#titulo_menu_izq_ml span.flecha_titulo").removeClass("flecha_arriba");
+				$("#titulo_menu_izq_ml span.flecha_titulo").addClass("flecha_abajo");
+				$("#titulo_menu_izq_ml .texto_titulo strong").html("Mostrar &iacute;ndice de ");
+			}			
+			
+			// Código real y definitivo para comportamiento de menú interior hechos con menú block con nuevas especificaciones18-03-2015
+			if($("#columna-izq .block-menu-block").css("display") == 'none'){
+				$("#columna-izq .block-menu-block").slideDown("fast");
+				$("#titulo_menu_izq_ml span.flecha_titulo").removeClass("flecha_abajo");
+				$("#titulo_menu_izq_ml span.flecha_titulo").addClass("flecha_arriba");
+				$("#titulo_menu_izq_ml .texto_titulo strong").html("Ocultar &iacute;ndice de ");
+			}else{
+				$("#columna-izq .block-menu-block").slideUp("fast");
+				$("#titulo_menu_izq_ml span.flecha_titulo").removeClass("flecha_arriba");
+				$("#titulo_menu_izq_ml #flecha").addClass("flecha_abajo");
+				$("#titulo_menu_izq_ml .texto_titulo strong").html("Mostrar &iacute;ndice de ");				
+			}									
+		}
+	 });		 
+	  
+
+	// botón volver arriba
+	$('a#smooth').live('click', function(e) {  
+	    var $link = $(this);  
+	    var anchor  = $link.attr('href');  
+	    $('html, body').stop().animate({  
+	        scrollTop: $(anchor).offset().top  
+	    }, 1000);  
+		return false;
+	}); 
+	
+	
+	// Movimiento lento de los anclas
+	$('a[href^="#"]').live('click', function(e) {  
+	    var $link = $(this);  
+	    var anchor  = $link.attr('href');  
+	    $('html, body').stop().animate({  
+	        scrollTop: $(anchor).offset().top  
+	    }, 1000);  
+		return false;
+	}); 
+	
+	
+	// Ajustes para que todo bloque de noticia secundaria de portada sea clicable
+	/* $('#block-views-lista-noticias-portada-block .views-row-1').click(function(){
+		document.location.href = $('#block-views-lista-noticias-portada-block .views-row-1 .views-field-title a').attr('href');
+	});
+	$('#block-views-lista-noticias-portada-block .views-row-2').click(function(){
+		document.location.href = $('#block-views-lista-noticias-portada-block .views-row-2 .views-field-title a').attr('href');
+	});
+	$('#block-views-lista-noticias-portada-block .views-row-3').click(function(){
+		document.location.href = $('#block-views-lista-noticias-portada-block .views-row-3 .views-field-title a').attr('href');
+	});
+	$('#block-views-lista-noticias-portada-block .views-row-4').click(function(){
+		document.location.href = $('#block-views-lista-noticias-portada-block .views-row-4 .views-field-title a').attr('href');
+	}); */
+	// Fin ajustes
+	
+	// Ajustes para que todo bloque de noticia secundaria de portada sea clicable CODIGO NUEVO
+	$('.listado_noticias .views-row-1').click(function(){
+		document.location.href = $('.listado_noticias .views-row-1 .views-field-title a').attr('href');
+	});
+	$('.listado_noticias .views-row-2').click(function(){
+		document.location.href = $('.listado_noticias .views-row-2 .views-field-title a').attr('href');
+	});
+	$('.listado_noticias .views-row-3').click(function(){
+		document.location.href = $('.listado_noticias .views-row-3 .views-field-title a').attr('href');
+	});
+	$('.listado_noticias .views-row-4').click(function(){
+		document.location.href = $('.listado_noticias .views-row-4 .views-field-title a').attr('href');
+	});
+	// Fin ajustes	
+	
+	// Ajuste pag intermedias 
+	alto_bloques_pag_intermedia();
+	
+	
+	
+	
+
+	if ($("#contenedor_principal").height() < 400)  $( "#smooth" ).hide();
+	
+	
+	/* $( ".menu.open" ).bind( "click", function() {
+		//$("body").addClass("menu_fijo");
+	}); */
+
+	// Código para ajuste de navegadores sin Neue
+	if(jQuery.fontAvailable('Helvetica Neue')){}
+	else{
+		jQuery('body').addClass("no-neue");
+		
+	}
+	
+});
+
+/* fontAvailable jQuery Plugin, v1.1
+ *
+ * Copyright (c) 2009, Howard Rauscher
+ * Licensed under the MIT License
+ */
+ 
+(function($) {
+	var element;
+	
+    $.fontAvailable = function(fontName) {
+        var width, height;
+        
+        // prepare element, and append to DOM
+        if(!element) {
+            element = $( document.createElement( 'span' ))
+                .css( 'visibility', 'hidden' )
+                .css( 'position', 'absolute' )
+                .css( 'top', '-10000px' )
+                .css( 'left', '-10000px' )
+                .html( 'abcdefghijklmnopqrstuvwxyz' )
+                .appendTo( document.body );
+        }
+        
+        // get the width/height of element after applying a fake font
+        width = element
+            .css('font-family', '__FAKEFONT__')
+            .width();
+        height = element.height();
+        
+        // set test font
+        element.css('font-family', fontName);
+        
+        return width !== element.width() || height !== element.height();
+    }
+})(jQuery);
+			

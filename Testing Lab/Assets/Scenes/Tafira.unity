@@ -45327,7 +45327,7 @@ PrefabInstance:
     - target: {fileID: 5497030196571998042, guid: fad0409feff108c4da100c9f77d33bb9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2039
+      value: 0.207
       objectReference: {fileID: 0}
     - target: {fileID: 5497030196571998042, guid: fad0409feff108c4da100c9f77d33bb9,
         type: 3}
@@ -45372,7 +45372,7 @@ PrefabInstance:
     - target: {fileID: 8418909866188787497, guid: fad0409feff108c4da100c9f77d33bb9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2039
+      value: 0.207
       objectReference: {fileID: 0}
     - target: {fileID: 8418909866188787497, guid: fad0409feff108c4da100c9f77d33bb9,
         type: 3}
@@ -45527,11 +45527,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 209341983}
     m_Modifications:
-    - target: {fileID: 3127546382900989515, guid: d5c39616b0a921449809233ec314fe92,
-        type: 3}
-      propertyPath: m_Name
-      value: ControlsMenuManager
-      objectReference: {fileID: 0}
     - target: {fileID: 3127546382900989516, guid: d5c39616b0a921449809233ec314fe92,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45662,6 +45657,11 @@ PrefabInstance:
       propertyPath: uiElements.Array.data[4]
       value: 
       objectReference: {fileID: 1515772472}
+    - target: {fileID: 3127546382900989515, guid: d5c39616b0a921449809233ec314fe92,
+        type: 3}
+      propertyPath: m_Name
+      value: ControlsMenuManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5c39616b0a921449809233ec314fe92, type: 3}
 --- !u!1001 &3610465921967944974
