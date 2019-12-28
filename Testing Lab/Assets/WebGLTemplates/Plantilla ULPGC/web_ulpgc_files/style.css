@@ -22,12 +22,26 @@ body {
     line-height: 1em;
 }
 
-.h1image{
+.imagen_cabecera{
+    font-size: 32px;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 0 0 10px rgb(0,0,0);
+    padding-left: 32px;
+    padding-right: 32px;
+
+
+    margin-top: 0px !important;
+    border: none;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+
 	background-image: url(../resources/images/el_pensador_recortado.png);
   	background-size: fill;
   	background-repeat: none;
   	padding-top: 95px;
-    padding-bottom: 80px !important;
+    padding-bottom: 70px !important;
 }
 
 .controls {
@@ -45,10 +59,10 @@ body {
   margin-top: 5px;
   
 }
-
+/*
 input.radio_circle{
 	margin-bottom: 10px;
-}
+}*/
 
 h2{
 	font-size: 1.75em !important;
@@ -59,9 +73,9 @@ h2{
 }
 
 .campus_selection{
-	padding-bottom: 40px !important;
+	padding-bottom: 25px !important;
     margin-bottom: 8px;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1.5em;
     color: #000000;
     border-bottom: 1px inset #1172E8;
@@ -76,6 +90,52 @@ h2{
 .pie_redes{
 	background-color: rgba();
 }
+
+ul.botonesCampus li{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.campusButton {
+	box-shadow:inset 0px 0px 2px 0px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:6px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	padding:14px 28px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1443b8;
+	width: 220px;
+}
+.campusButton:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.campusButton:active {
+	position:relative;
+	top:1px;
+}
+
+.wrapper{
+	display: inline-grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-column-gap: 60px;
+	grid-row-gap: 60px;
+	margin: 0 25% 3px 25%;
+
+}
+
+
+
+
 
 .webgl-content * {border: 0; margin: 0; padding: 0}
 .webgl-content { /*position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);*/ }

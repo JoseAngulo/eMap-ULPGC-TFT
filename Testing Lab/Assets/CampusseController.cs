@@ -69,37 +69,7 @@ public class CampusseController : MonoBehaviour
 
     }
 
-    /*
-    private void showButtons()
-    {
-        xOffset = -initialXOffset;
-
-        foreach (GameObject button in buttons)
-        {
-            button.gameObject.SetActive(true);
-            LeanTween.moveX(button.GetComponent<RectTransform>(), xOffset, 1f).setEaseOutCirc();
-            xOffset -= initialXOffset;
-        }
-
-        buttonsShowed = true;
-
-    }
-
-    public void hiddeButtons()
-    {
-        xOffset = 0f;
-        LTDescr leanButtonDescription;
-
-        foreach (GameObject button in buttons)
-        {
-            leanButtonDescription = LeanTween.moveX(button.GetComponent<RectTransform>(), xOffset, 1f).setEaseOutCirc();
-            leanButtonDescription.setOnComplete(() => button.gameObject.SetActive(false));
-        }
-
-        buttonsShowed = false;
-
-    }*/
-
+    
     public void OpenCampusScene(String sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
