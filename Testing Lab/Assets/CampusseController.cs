@@ -26,16 +26,22 @@ public class CampusseController : MonoBehaviour
 
     public void showCampussesButtons()
     {
-
-        if (!buttonsShowed)
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            showButtons();
+            this.gameObject.SetActive(false);
         }
         else
         {
-            hiddeButtons();
+            if (!buttonsShowed)
+            {
+                showButtons();
+            }
+            else
+            {
+                hiddeButtons();
+            }
         }
-
+        
     }
 
     private void showButtons()
