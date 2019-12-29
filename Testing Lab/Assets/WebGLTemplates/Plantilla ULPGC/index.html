@@ -118,9 +118,9 @@
 
 	<!-- Scripts para funcionamiento de Unity -->
 
-	<script src="Build/UnityLoader.js"></script>
+	<script src="%UNITY_WEBGL_LOADER_URL%"></script>
   	<script>
-    	var gameInstance = UnityLoader.instantiate("gameContainer", "Build/TFT.json");
+    	var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
 
       	function changeCampusJavascript(campusName){
 			gameInstance.SendMessage("JavaScriptCampusManager", "changeCampusFromJavascript", campusName);
