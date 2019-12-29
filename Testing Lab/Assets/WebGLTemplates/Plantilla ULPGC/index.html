@@ -36,6 +36,7 @@
 
 
 	<link rel="stylesheet" type="text/css" href="./web_ulpgc_files/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 	<meta name="viewport" content="width=device-width,user-scalable=1,initial-scale=1.0">
@@ -117,9 +118,9 @@
 
 	<!-- Scripts para funcionamiento de Unity -->
 
-	<script src="%UNITY_WEBGL_LOADER_URL%"></script>
+	<script src="Build/UnityLoader.js"></script>
   	<script>
-    	var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
+    	var gameInstance = UnityLoader.instantiate("gameContainer", "Build/TFT.json");
 
       	function changeCampusJavascript(campusName){
 			gameInstance.SendMessage("JavaScriptCampusManager", "changeCampusFromJavascript", campusName);
@@ -356,18 +357,24 @@
 				<!-- Reproductor web de Unity -->
 
                 <div class="webgl-content">
-                  <div id="gameContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px; margin: auto"></div>
+                  <div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
 
                   <div class="footer">
                     <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-                    <div class="title">%UNITY_WEB_NAME%</div>
+                    <div class="title">Pantalla completa</div>
                   </div>
                 </div>
 
                 <!-- Fin de reproductor web de Unity -->
 
-              	
-
+                <div class="download_container">
+                	<a class="download_btn" download href="http://localhost/TFT/Apk/visor3D.apk"><i class="fa fa-android"></i> Descargar aplicación (servidor local) </a>
+                </div>
+                <div class="download_container">
+                	<a class="download_btn" download href="http://193.145.147.50/jjangulo/Test/Apk/Visor3D.apk"><i class="fa fa-android"></i> Descargar aplicación (servidor remoto) </a>
+                </div>
+                
+                
                 <!-- FIN DE SECCIÓN DE UNITY -->
 
 
