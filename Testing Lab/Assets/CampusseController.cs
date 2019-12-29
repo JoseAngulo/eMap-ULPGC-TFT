@@ -18,7 +18,17 @@ public class CampusseController : MonoBehaviour
 
     private void Start()
     {
-        initialYOffset = buttons[0].transform.position.y;
+        Debug.Log("LA PLATAFORMA ES: " + Application.platform);
+        if(Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            initialYOffset = buttons[0].transform.position.y;
+        }
+        
         //animationDuration = 1f;
         //animationDelay = 0.5f;
 
@@ -26,22 +36,16 @@ public class CampusseController : MonoBehaviour
 
     public void showCampussesButtons()
     {
-        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        
+        if (!buttonsShowed)
         {
-            this.gameObject.SetActive(false);
+            showButtons();
         }
         else
         {
-            if (!buttonsShowed)
-            {
-                showButtons();
-            }
-            else
-            {
-                hiddeButtons();
-            }
+            hiddeButtons();
         }
-        
+          
     }
 
     private void showButtons()
