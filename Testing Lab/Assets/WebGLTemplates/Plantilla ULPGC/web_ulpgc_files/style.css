@@ -143,18 +143,24 @@ ul.botonesCampus li{
 }
 
 .download_btn {
-	display: :inline;
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  padding: 12px 30px;
-  cursor: pointer;
-  font-size: 20px;
-  text-decoration: none;
+	display: inline;
+	width: 100px;
+  	background-color: DodgerBlue;
+  	border: none;
+  	color: white;
+  	padding: 12px 30px;
+  	cursor: pointer;
+  	font-size: 20px;
+  	text-decoration: none;
+
+}
+
+.download_remote{
+	background-color: green;
 }
 
 .download_btn:hover {
-  background-color: RoyalBlue;
+  	background-color: RoyalBlue;
 }
 
 

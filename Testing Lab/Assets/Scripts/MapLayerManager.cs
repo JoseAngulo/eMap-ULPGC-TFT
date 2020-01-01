@@ -21,6 +21,7 @@ public class MapLayerManager : MonoBehaviour
         String sceneName = SceneManager.GetActiveScene().name;
         if (Application.platform == RuntimePlatform.WebGLPlayer) { savePath = Application.dataPath + "/map_layer_textures/" + sceneName + "/"; }
         if (Application.platform == RuntimePlatform.WindowsEditor) { savePath = Application.dataPath + "/Resources/Images/downloaded/" + sceneName + "/"; }
+        if (Application.platform == RuntimePlatform.Android) { savePath = Application.dataPath + "/Resources/Images/downloaded/"; }
     }
 
     public void UpdateLayer(string layerName, string baseImageURL)
