@@ -314,16 +314,6 @@
 
 				<!-- Botones de campus -->
 
-				<!--
-					<ul class="botonesCampus">
-						<li><button class="campusButton" value="Tafira" onclick="changeCampusJavascript(event,this.value)">Tafira</li>
-						<li><button class="campusButton" value="San_Cristobal" onclick="changeCampusJavascript(event,this.value)">San Cristóbal</a></li>
-						<li><button class="campusButton" value="Obelisco" onclick="changeCampusJavascript(event,this.value)">El Obelisco</a></li>
-						<li><button class="campusButton" value="Montana_Cardones" onclick="changeCampusJavascript(event,this.value)">Montaña Cardones</a><li>
-
-						
-					</ul>
-				-->
 					<div class="wrapper">
 						<div><button class="campusButton" value="Tafira" onclick="changeCampusJavascript(this.value)">Tafira</div>
 						<div><button class="campusButton" value="San_Cristobal" onclick="changeCampusJavascript(this.value)">San Cristóbal</div>
@@ -332,31 +322,16 @@
 					</div>
 				
 
-				<!--	
-				<div class="controls">
-					<label class="radio ">
-						<input type="radio" class="radio_circle" name="foo" value="Tafira" onclick="changeCampusJavascript(this.value)">
-						Tafira
-					</label>
-					<label class="radio">
-						<input class="radio_circle" type="radio" name="foo" value="San_Cristobal" onclick="changeCampusJavascript(this.value)">
-						San Cristóbal
-					</label>
-					<label class="radio">
-						<input class="radio_circle" type="radio" name="foo" value="Obelisco" onclick="changeCampusJavascript(this.value)">
-						El Obelisco
-					</label>
-					<label class="radio">
-						<input class="radio_circle" type="radio" name="foo" value="Montana_Cardones" onclick="changeCampusJavascript(this.value)">
-						Montaña Cardones
-					</label>
-				</div>                         
-				-->
 				<!-- Fin de botones de campus -->
 
 				<!-- Reproductor web de Unity -->
 
-                <div class="webgl-content">
+				<div class="webgl-content loading_screen">
+					<img src="./resources/images/pantalla_carga.png" class="fade-out-bck">
+				</div>
+
+
+                <div class="webgl-content hidden">
                   <div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
 
                   <div class="footer">
