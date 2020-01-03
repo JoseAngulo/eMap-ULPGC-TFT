@@ -118,9 +118,9 @@
 
 	<!-- Scripts para funcionamiento de Unity -->
 
-	<script src="%UNITY_WEBGL_LOADER_URL%"></script>
+	<script src="Build/UnityLoader.js"></script>
   	<script>
-    	var gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
+    	var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Builds.json");
 
       	function changeCampusJavascript(campusName){
 			gameInstance.SendMessage("JavaScriptCampusManager", "changeCampusFromJavascript", campusName);
@@ -325,28 +325,31 @@
 				<!-- Fin de botones de campus -->
 
 				<!-- Reproductor web de Unity -->
+				<div class="relative" style="position: relative; height:600px; margin-bottom:150px">
 
-				<div class="webgl-content loading_screen">
-					<img src="./resources/images/pantalla_carga.png" class="fade-out-bck">
+					<!-- Pantalla de carga -->
+					<div class="webgl-content loading_screen" id="loading_screen" style="position: absolute; width: 100%; height: 100%; z-index: 1">
+						<img src="./resources/images/pantalla_carga.png">
+					</div>
+
+					<!-- Reproductor interactivo -->
+					<div class="webgl-content" style="position: absolute">
+						<div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
+
+						<div class="footer">
+							<div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+							<div class="title">Pantalla completa</div>
+						</div>
+					</div>
 				</div>
-
-
-                <div class="webgl-content hidden">
-                  <div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
-
-                  <div class="footer">
-                    <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-                    <div class="title">Pantalla completa</div>
-                  </div>
-                </div>
-
+				
                 <!-- Fin de reproductor web de Unity -->
 
-                <div class="download_container">
-                	<a class="download_btn" download href="http://localhost/TFT/Apk/visor3D.apk"><i class="fa fa-android"></i> Descargar aplicación para Android </a>
+                <div class="download_container" style="display:inline-block;">
+                	<a class="download_btn" download href="http://localhost/TFT2/Apk/visor3D.apk"><i class="fa fa-android"></i> Descargar aplicación para Android </a>
                 </div>
-                <div class="download_container">
-                	<a class="download_btn download_remote" download href="http://193.145.147.50/jjangulo/Test/Apk/Visor3D.apk"><i class="fa fa-android"></i> Descargar aplicación (servidor remoto) </a>
+                <div class="download_container" style="display:inline-block;">
+                	<a class="download_btn download_remote" download href="http://193.145.147.50/jjangulo/Test/Apk/visor3D.apk"><i class="fa fa-android"></i> Descargar aplicación (servidor remoto) </a>
                 </div>
                 
                 
