@@ -14728,7 +14728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingMainPage: http://www.fcafd.ulpgc.es/
-  buildingName: "Edificio de Educaci\xF3n F\xEDsica y Pabell\xF3n de Deportes"
+  buildingName: "Educaci\xF3n F\xEDsica y Pabell\xF3n"
   selectedArrow: {fileID: 2028153567}
 --- !u!4 &639376495
 Transform:
@@ -34098,7 +34098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingMainPage: http://www.eiic.ulpgc.es/
-  buildingName: Escuela de ingenierias industriales y civiles 2
+  buildingName: Ing. Industriales y Civiles
   selectedArrow: {fileID: 771964609}
 --- !u!4 &1590809327
 Transform:
