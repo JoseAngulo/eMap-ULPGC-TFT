@@ -7,21 +7,16 @@ using UnityEngine.UI;
 public class MapLayersController : MonoBehaviour
 {
 
-    public List<GameObject> buttons;
+    public List<RectTransform> buttons;
     private bool buttonsShowed = false;
-    public float initialXOffset;
     private float initialYOffset;
-    private float xOffset;
     public float yOffset;
     public float animationDuration;
-    public float animationDelay;
 
 
     private void Start()
     {
-        initialYOffset = buttons[0].transform.position.y;
-        //animationDuration = 1f;
-        //animationDelay = 0.5f;
+        initialYOffset = buttons[0].anchoredPosition.y;
 
     }
 
@@ -43,12 +38,11 @@ public class MapLayersController : MonoBehaviour
     {
         Debug.Log(buttons[0].transform.position.y); //initialYOffset = buttons[0].transform.position.y;
 
-        foreach (GameObject button in buttons)
+        foreach (RectTransform button in buttons)
         {
             Debug.Log(yOffset);
             button.gameObject.SetActive(true);
-            LeanTween.moveY(button.GetComponent<RectTransform>(), yOffset, animationDuration).setEaseOutCirc().setDelay(animationDelay);
-            //animationDuration += animationDelay;
+            LeanTween.moveY(button, yOffset, animationDuration).setEaseOutCirc();
         }
 
         buttonsShowed = true;
@@ -59,11 +53,10 @@ public class MapLayersController : MonoBehaviour
     {
         LTDescr leanButtonDescription;
 
-        foreach (GameObject button in buttons)
+        foreach (RectTransform button in buttons)
         {
-            leanButtonDescription = LeanTween.moveY(button.GetComponent<RectTransform>(), initialYOffset, animationDuration).setEaseOutCirc().setDelay(animationDelay);
+            leanButtonDescription = LeanTween.moveY(button, initialYOffset, animationDuration).setEaseOutCirc();
             leanButtonDescription.setOnComplete(() => button.gameObject.SetActive(false));
-            //animationDuration += animationDelay;
         }
 
         buttonsShowed = false;

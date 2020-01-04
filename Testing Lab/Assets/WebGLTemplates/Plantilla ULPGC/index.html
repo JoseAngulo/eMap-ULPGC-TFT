@@ -310,11 +310,13 @@
 
 				<!-- SECCIÓN DE UNITY -->
 
-				<h2 class="campus_selection">Seleccione un campus a visualizar</h2>
+				
+
+				<h2 class="campus_selection" id="campus_selection_title">Espere un momento, en breve podrá disfrutar del visor...</h2>
 
 				<!-- Botones de campus -->
 
-					<div class="wrapper">
+					<div class="wrapper" id="campus_selection_wrapper">
 						<div><button class="campusButton" value="Tafira" onclick="changeCampusJavascript(this.value)">Tafira</div>
 						<div><button class="campusButton" value="San_Cristobal" onclick="changeCampusJavascript(this.value)">San Cristóbal</div>
 						<div><button class="campusButton" value="Obelisco" onclick="changeCampusJavascript(this.value)">El Obelisco</div>
@@ -325,6 +327,22 @@
 				<!-- Fin de botones de campus -->
 
 				<!-- Reproductor web de Unity -->
+
+				<!-- Script para ocultar la pantalla de carga tras unos segundos y mostrar los botones de selección de campus -->
+				<script type="text/javascript"> 
+				setTimeout( 
+					function(){  
+						let loadingScreen = document.getElementById("loading_screen");
+						loadingScreen.classList.add("fade-out-bck");
+
+						let campusSelectionTitle = document.getElementById("campus_selection_title").innerHTML = "Seleccione un campus a visualizar";
+
+						let campusSelectionWrapper = document.getElementById("campus_selection_wrapper");
+						campusSelectionWrapper.classList.add("fade-in-top");
+
+					}, 26000); 
+				</script>
+				
 				<div class="relative" style="position: relative; height:600px; margin-bottom:150px">
 
 					<!-- Pantalla de carga -->

@@ -499,7 +499,7 @@ PrefabInstance:
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -78.6
+      value: -87.3
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
@@ -509,12 +509,12 @@ PrefabInstance:
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 32
+      value: 37.18
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 32
+      value: 37.178
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
@@ -1720,10 +1720,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: []
-  initialXOffset: 0
   yOffset: 0
   animationDuration: 0
-  animationDelay: 0
 --- !u!1 &372728131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,8 +2096,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34.79, y: -31.8}
-  m_SizeDelta: {x: 32, y: 32}
+  m_AnchoredPosition: {x: -40.089996, y: -31.800003}
+  m_SizeDelta: {x: 37.18, y: 37.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &399503294
 MonoBehaviour:
@@ -3834,14 +3832,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 573240367}
-  - {fileID: 1592421269}
-  - {fileID: 1647430843}
-  - {fileID: 1797956801}
-  initialXOffset: 85
+  - {fileID: 573240368}
+  - {fileID: 1592421270}
+  - {fileID: 1647430844}
+  - {fileID: 1797956802}
   yOffset: 20.59
   animationDuration: 1
-  animationDelay: 0
 --- !u!114 &641643964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5186,13 +5182,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 73912669}
-  - {fileID: 717678309}
-  - {fileID: 376026084}
-  initialXOffset: 85
+  - {fileID: 73912674}
+  - {fileID: 717678314}
+  - {fileID: 376026089}
   yOffset: 20.59
   animationDuration: 1
-  animationDelay: 0
 --- !u!114 &882939931
 MonoBehaviour:
   m_ObjectHideFlags: 0

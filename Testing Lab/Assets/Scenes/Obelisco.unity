@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 32920909}
   - component: {fileID: 32920908}
   - component: {fileID: 32920907}
+  - component: {fileID: 32920911}
   m_Layer: 5
   m_Name: BuildingsDropdown
   m_TagString: Untagged
@@ -344,6 +345,19 @@ RectTransform:
   m_AnchoredPosition: {x: 32.17504, y: -9.399902}
   m_SizeDelta: {x: 246.42, y: 46.55}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &32920911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32920906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0bc9cbda24abaa458e40b954f58aaba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown: {fileID: 32920906}
 --- !u!1 &67665580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,14 +1204,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 1791307650}
-  - {fileID: 1352621367}
-  - {fileID: 67665580}
-  - {fileID: 1687301625}
-  initialXOffset: 85
+  - {fileID: 1791307651}
+  - {fileID: 1352621368}
+  - {fileID: 67665581}
+  - {fileID: 1687301626}
   yOffset: 20.59
   animationDuration: 1
-  animationDelay: 0
 --- !u!114 &204263963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,6 +1263,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 437690025}
         m_MethodName: hiddeCompass
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1090021406}
+        m_MethodName: hiddeButtons
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1473,11 +1496,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac20918c3b0f36b4dbe59ade57bc4b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doubleClickTime: 0.4
+  dropdown: {fileID: 32920906}
   clickablesLayer:
     serializedVersion: 2
     m_Bits: 512
   maxRayDistance: 50
-  _doubleClickTime: 0.4
 --- !u!114 &266576808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4222,22 +4246,22 @@ PrefabInstance:
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -90.7
+      value: -86.6
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -31.77002
+      value: -31.8
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 26.7
+      value: 30.03
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 26.696
+      value: 30.04
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
@@ -6819,13 +6843,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 1019186547}
-  - {fileID: 743063533}
-  - {fileID: 1228498583}
-  initialXOffset: 85
+  - {fileID: 1019186552}
+  - {fileID: 743063538}
+  - {fileID: 1228498588}
   yOffset: 20.59
   animationDuration: 1
-  animationDelay: 0
 --- !u!114 &1090021407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8679,7 +8701,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -34.79, y: -31.8}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 37.18, y: 37.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1457549995
 MonoBehaviour:
@@ -12345,7 +12367,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: []
-  initialXOffset: 0
   yOffset: 0
   animationDuration: 0
-  animationDelay: 0

@@ -6313,13 +6313,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 530708490}
-  - {fileID: 156028142}
-  - {fileID: 363360299}
-  initialXOffset: 85
+  - {fileID: 530708495}
+  - {fileID: 156028147}
+  - {fileID: 363360304}
   yOffset: 20.59
   animationDuration: 1
-  animationDelay: 0
 --- !u!114 &961177588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6622,14 +6620,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 1330359382}
-  - {fileID: 1569685582}
-  - {fileID: 1062623851}
-  - {fileID: 754856617}
-  initialXOffset: 85
+  - {fileID: 1330359383}
+  - {fileID: 1569685583}
+  - {fileID: 1062623852}
+  - {fileID: 754856618}
   yOffset: 20.59
   animationDuration: 1
-  animationDelay: 0
 --- !u!1 &990698123
 GameObject:
   m_ObjectHideFlags: 0
@@ -7607,10 +7603,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons: []
-  initialXOffset: 0
   yOffset: 0
   animationDuration: 0
-  animationDelay: 0
 --- !u!1 &1155202507
 GameObject:
   m_ObjectHideFlags: 0
@@ -9353,7 +9347,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -34.79, y: -31.8}
-  m_SizeDelta: {x: 32, y: 32}
+  m_SizeDelta: {x: 37.18, y: 37.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1740196481
 MonoBehaviour:
@@ -10129,22 +10123,22 @@ PrefabInstance:
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -90.7
+      value: -86.3
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -31.77002
+      value: -31.7
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 26.07
+      value: 29.59
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 26.074
+      value: 29.59
       objectReference: {fileID: 0}
     - target: {fileID: 6512053070929487957, guid: 0491750468e4ffd4aa1f6aa295cd6bf5,
         type: 3}

@@ -6,37 +6,31 @@ using UnityEngine.SceneManagement;
 public class CampusseController : MonoBehaviour
 {
 
-    public List<GameObject> buttons;
+    public List<RectTransform> buttons;
     private bool buttonsShowed = false;
-    public float initialXOffset;
     private float initialYOffset;
-    private float xOffset;
     public float yOffset;
     public float animationDuration;
-    public float animationDelay;
 
 
     private void Start()
     {
         Debug.Log("LA PLATAFORMA ES: " + Application.platform);
-        if(Application.platform == RuntimePlatform.WebGLPlayer)
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
 
             this.gameObject.SetActive(false);
         }
         else
         {
-            initialYOffset = buttons[0].transform.position.y;
+            initialYOffset = buttons[0].anchoredPosition.y;
         }
-        
-        //animationDuration = 1f;
-        //animationDelay = 0.5f;
 
     }
 
     public void showCampussesButtons()
     {
-        
+
         if (!buttonsShowed)
         {
             showButtons();
@@ -45,19 +39,18 @@ public class CampusseController : MonoBehaviour
         {
             hiddeButtons();
         }
-          
+
     }
 
     private void showButtons()
     {
         Debug.Log(buttons[0].transform.position.y); //initialYOffset = buttons[0].transform.position.y;
 
-        foreach (GameObject button in buttons)
+        foreach (RectTransform button in buttons)
         {
             Debug.Log(yOffset);
             button.gameObject.SetActive(true);
-            LeanTween.moveY(button.GetComponent<RectTransform>(), yOffset, animationDuration).setEaseOutCirc().setDelay(animationDelay);
-            //animationDuration += animationDelay;
+            LeanTween.moveY(button, yOffset, animationDuration).setEaseOutCirc();
         }
 
         buttonsShowed = true;
@@ -68,18 +61,17 @@ public class CampusseController : MonoBehaviour
     {
         LTDescr leanButtonDescription;
 
-        foreach (GameObject button in buttons)
+        foreach (RectTransform button in buttons)
         {
-            leanButtonDescription = LeanTween.moveY(button.GetComponent<RectTransform>(), initialYOffset, animationDuration).setEaseOutCirc().setDelay(animationDelay);
+            leanButtonDescription = LeanTween.moveY(button, initialYOffset, animationDuration).setEaseOutCirc();
             leanButtonDescription.setOnComplete(() => button.gameObject.SetActive(false));
-            //animationDuration += animationDelay;
         }
 
         buttonsShowed = false;
 
     }
 
-    
+
     public void OpenCampusScene(String sceneName)
     {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);

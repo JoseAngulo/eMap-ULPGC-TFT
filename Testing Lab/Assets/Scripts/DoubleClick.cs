@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 public class DoubleClick : MonoBehaviour
 {
 
+    public float _doubleClickTime = 0.4f;
+    public GameObject dropdown;
+
     [SerializeField]
     private LayerMask clickablesLayer;
 
@@ -13,10 +16,10 @@ public class DoubleClick : MonoBehaviour
     private float maxRayDistance;
 
     private BuildingProperties building;
-    public float _doubleClickTime = 0.4f;
 
 
 
+    
     private float firstClickTime;
     private float timeBetweenClicks;
     private int clickCounter;
@@ -74,6 +77,9 @@ public class DoubleClick : MonoBehaviour
                     Debug.Log("Se ha picado sobre edificio");
                     if (building) { deactivateArrow(); }
                     building = rayHit.collider.transform.root.GetComponent<BuildingProperties>();
+
+                    //* Update dropdown label with building name //*
+                    dropdown.GetComponent<DropdownController>().changeDropLabel(building.name);
 
                     if (!getBuildingArrow(building).activeSelf)
                     {
