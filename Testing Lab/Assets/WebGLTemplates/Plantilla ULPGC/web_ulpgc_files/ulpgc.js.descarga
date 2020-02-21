@@ -512,11 +512,11 @@ jQuery(function ($) {
 	}); */
 
 	// Código para ajuste de navegadores sin Neue
-	if(jQuery.fontAvailable('Helvetica Neue')){}
+	/*if(jQuery.fontAvailable('Helvetica Neue')){}
 	else{
 		jQuery('body').addClass("no-neue");
 		
-	}
+	}*/
 	
 });
 

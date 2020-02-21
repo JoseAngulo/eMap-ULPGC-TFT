@@ -98,6 +98,7 @@ ul.botonesCampus li{
 	align-items: center;
 }
 
+/* Old campusButton style without Bootstrap
 .campusButton {
 	box-shadow:inset 0px 0px 2px 0px #9fb4f2;
 	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
@@ -114,7 +115,48 @@ ul.botonesCampus li{
 	text-decoration:none;
 	text-shadow:0px 1px 0px #1443b8;
 	width: 220px;
+}*/
+
+.header_image {
+  position: relative;
 }
+
+.header_text_container {
+  position: absolute;
+  top: 45%;
+  left: 3%;
+  width: 100%;
+}
+
+.header_text {
+  text-shadow:0px 4px 0px #1443b8;
+  color:#ffffff;
+  font-family:Verdana;
+  font-size:180%;
+  font-weight:bold;
+  text-decoration:none;
+  border: none;
+  background: none;
+}
+
+
+.campusButton {
+  box-shadow:inset 0px 0px 2px 0px #9fb4f2;
+  background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color:#7892c2;
+  border-radius:6px;
+  border:1px solid #4e6096;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Verdana;
+  font-size:15px;
+  font-weight:bold;
+  padding:14px 28px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #1443b8;
+  min-width: 220px;
+}
+
 .campusButton:hover {
 	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
 	background-color:#476e9e;
@@ -124,6 +166,7 @@ ul.botonesCampus li{
 	top:1px;
 }
 
+/* Old wrapper styles without CSS 
 .wrapper{
 	display: inline-grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -133,7 +176,12 @@ ul.botonesCampus li{
 	margin: 0 25% 3px 25%;
   opacity: 0;
 }
+*/
 
+.wrapper{
+  margin: 0 25% 3px 25%;
+  opacity: 0;
+}
 
 /* Download button styles */
 .download_container{
@@ -144,15 +192,10 @@ ul.botonesCampus li{
 }
 
 .download_btn {
-	display: inline;
-	width: 100px;
-  	background-color: DodgerBlue;
-  	border: none;
-  	color: white;
-  	padding: 12px 30px;
-  	cursor: pointer;
-  	font-size: 20px;
-  	text-decoration: none;
+  font-size: 20px;
+  padding: 12px 30px;
+  cursor: pointer;
+  text-decoration: none;
 
 }
 
@@ -185,6 +228,33 @@ ul.botonesCampus li{
 }
 
 
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+/* Small devices (landscape phones, 544px and up) */
+/*
+@media (min-width: 544px) {  
+ .download_btn a {font-size:1.5rem;}*/ /*1rem = 16px*/
+/*}*/
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+/*@media (min-width: 768px) {  
+  .download_btn a {font-size:2rem;} *//*1rem = 16px*/
+/*}*/
+ 
+/* Large devices (desktops, 992px and up) */
+/*@media (min-width: 992px) { 
+  .download_btn a {font-size:2.5rem;}*/ /*1rem = 16px*/
+/*}*/
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+/*@media (min-width: 1200px) {  
+  .download_btn a {font-size:3rem;}*/ /*1rem = 16px*/    
+/*}*/
+
+
+
 .fade-out-bck {
 	-webkit-animation: fade-out-bck 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: fade-out-bck 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -196,9 +266,7 @@ ul.botonesCampus li{
 }
 
 /**
- * ----------------------------------------
  * animation fade-out-bck
- * ----------------------------------------
  */
 @-webkit-keyframes fade-out-bck {
   0% {

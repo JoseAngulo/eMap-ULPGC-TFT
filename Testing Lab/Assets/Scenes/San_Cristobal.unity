@@ -1425,11 +1425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac20918c3b0f36b4dbe59ade57bc4b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doubleClickTime: 0.4
+  dropdown: {fileID: 0}
   clickablesLayer:
     serializedVersion: 2
     m_Bits: 512
   maxRayDistance: 50
-  _doubleClickTime: 0.4
 --- !u!114 &148721400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9640,6 +9641,11 @@ PrefabInstance:
       propertyPath: north
       value: 
       objectReference: {fileID: 1883828502}
+    - target: {fileID: 7501996753500858719, guid: 3b8da2e5742a962458f2f9ed3ef0f7c8,
+        type: 3}
+      propertyPath: northDirection.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b8da2e5742a962458f2f9ed3ef0f7c8, type: 3}
 --- !u!224 &1772482602 stripped

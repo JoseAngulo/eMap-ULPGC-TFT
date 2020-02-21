@@ -79,7 +79,7 @@ public class DoubleClick : MonoBehaviour
                     building = rayHit.collider.transform.root.GetComponent<BuildingProperties>();
 
                     //* Update dropdown label with building name //*
-                    dropdown.GetComponent<DropdownController>().changeDropLabel(building.name);
+                    dropdown.GetComponent<DropdownController>().changeDropLabel(building.buildingName);
 
                     if (!getBuildingArrow(building).activeSelf)
                     {
